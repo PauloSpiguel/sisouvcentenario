@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="res/site/css/Style.css" rel="stylesheet"/>
+    <link href="res/site/css/bootstrap.css" rel="stylesheet"/>
+    <link href="res/site/css/Estilo_Formulario.css" rel="stylesheet"/>
+    <link href="res/site/css/Site.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+        <script type="text/javascript">
+            jQuery(window).load(function($){
+                atualizaRelogio();
+            });
+        </script>
+    <title>..:: Sis-OuvWeb Centenário do Sul ::..</title>
+                </head>
+<body>
+    <div class="divCabecalho">
+        <header>
+            <div class="divInfoTopo">
+                <div class="BarraTopo">
+                    <div id="barraInfo">
+                        <div>
+                            <a href="http:\\www.centenariodosul.pr.gov.br" class="barra-bandeira">Centenário do Sul</a>
+                        </div>
+                        <div class="barra-parana">
+                            <a href="" class="link-parana">Paraná</a>
+                        </div>
+                            <div class="divData">
+                                <a id="data"></a>        
+                                <a id="hora"></a>
+                            </div>
+                    </div>
+                    <div class="navTopInfo">
+                        <nav class="list">
+                            <ul>
+                                <li class="list-item"><a href="../Manifestacoes.php">Nova Manifestação</a></li>
+                                <li class="list-item"><a href="">Telefones Úteis</a></li>
+                                <li class="list-item"><a href="">Secretarias Municipais</a></li>
+                                <li class="item-img-info"><a href="">Lei de Acesso a Informação</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="divTopo">
+                <figure>
+                    <img class="logoEsquerda" src="res/site/img/logo.png" alt="Logotipo Principal Prefeitura de Centenário do Sul" />
+                    <figcaption style="display:none">Brasão Prefeitura Municipal de Centenário do Sul</figcaption>
+                </figure>
+                <figure>
+                    <img class="logoDireita" src="res/site/img/ouv.png" alt="Logotipo Sys-Ouv" />
+                    <figcaption style="display:none">LogoTipo Sys-Ouv Municipal</figcaption>
+                </figure>
+                <!-- /Cabeçalho -->
+            </div>
+            <div class="painel-menu">
+                <div class="Menu_Pesquisa">
+                    <div id="divPesquisaMenu">
+                        <div id="MenuTitulo">BEM VINDO(A) AO SiS-OUV MUNICIPAL</div>
+                        <div class="divPesquisa">
+                            <form method="get" id="form_pesquisa" action="/Home/frmSucessoProtocolo" name="myform">
+                                <input name="ipaddr" id="idTxtPesquisa" type="search" placeholder="Digite seu protocolo..." readonly />
+                                <input name="btnProrocolo" id="idBtnPesquisa" type="submit" value="Pesquisar" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <nav class="MenuPrincipal">
+                    <h1 style="display: none">Menu Principal</h1>
+                    <ul>
+                        <li class="nav-menu">
+                            <a href="" title="Sobre o Sys-Ouv Municipal">Sobre o Sys-Ouv Municipal</a>
+                            <ul class="Sub-menu">
+                                <li><a href="http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm" target="_blank">LAI - Lei de Acesso a Informação</a></li>
+                                <li><a href="#">Implantação</a></li>
+                                <li><a href="#">Ouvidoria Municipal</a></li>
+                            </ul>
+                            <span class="arrow">&#9660;</span>
+                        </li>
+                        <li class="nav-menu">
+                            <a href="#" title="Como Usar?">Como Usar?</a>
+                            <ul class="Sub-menu">
+                                <li><a href="#">Manual do Usuário</a></li>
+                                <li><a href="#">Perguntas Frequêntes</a></li>
+                                <li><a href="#">Demostração<a></li>
+                                </ul>
+                                <span class="arrow">&#9660;</span>
+                            </li>
+                            <li class="nav-menu"><a href="Manifestacoes.php">Abertura de Manfestações</a></li>
+                            <li class="nav-menu"><a href="#">Portal de Transparência</a></li>
+                            <ul class="Sub-menu">
+                                <li><a href="http://177.220.139.100:7476/SysPortal/" target="_blank">Município de Centenário do Sul</a></li>
+                                <li><a href="#">Câmara Municipal</a></li>
+                                <li><a href="#">APMIF</a></li>
+                            </ul>
+                            <span class="arrow">&#9660;</span>
+                            <li class="nav-menu"><a href="#">Suporte</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        </div>

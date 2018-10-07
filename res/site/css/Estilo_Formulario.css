@@ -1,0 +1,109 @@
+﻿/*############CONFIGURAÃO DE FORMULARIOS############*/
+
+input[type=text], input[type=number],
+input[type=password], input[type=tel],
+input[type=date], input[type=email], select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    display: block;
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition:.3s;
+}
+
+    input[type=text]:focus, input[type=number]:focus,
+    input[type=password]:focus, input[type=tel]:focus,
+    input[type=date]:hover, input[type=email]:focus, textarea:focus, select:focus {
+        background-color: rgba(0, 148, 255, 0.1);
+        border-color: #0094ff;
+        box-shadow: 0 0 8px 0 rgb(0, 148, 255);
+    }
+
+.inputIcone input[type=text], input[type=date],
+input[type=number], input[type=password], 
+input[type=email], input[type=tel], select{
+    padding-left: 40px;
+}
+
+    .inputIcone{
+        position: relative;
+    }
+
+    .inputIcone i{
+        position: absolute;
+        left:0;
+        top: 28px;
+        padding: 9px 8px;
+        color: #aaa;
+        transition:.3s;
+        font-size: 1.8em;
+
+    }
+
+.inputIconeEnviar {
+    position: relative;
+}
+.inputIconeEnviar i {
+    position: absolute;
+    /*left: 0;*/
+    top: 15px;
+    margin-left: 35%;
+    color: #aaa;
+    transition: .3s;
+    font-size: 3.8em;
+}
+
+        .inputIcone input[type=text]:focus + i, input[type=email]:focus + i,
+        input[type=number]:focus + i, input[type=tel]:focus + i,
+        input[type=password]:focus + i, input[type=date]:focus + i, select:focus + i {
+            color: #0094ff;
+        } 
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type=submit] {
+    width: 100%;
+    background-color: brown;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+    button[type=submit]:hover {
+        background-color: black;
+    }
+
+.grupo {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    padding: 20px;
+}
+    .grupo #radios label {
+        padding-right: 10px;
+        font-size: 1em;
+    }
+
+    .grupo #radios {
+        border: 2px solid #aaa;
+    }
+
+fieldset {
+    border: 0;
+}

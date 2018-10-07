@@ -1,0 +1,443 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding: 0;*/
+    background-color: #ffffff;
+    /*border: 2px solid rgb(11,49,76);*/
+    color: #333333;
+    font-family: "Montserrat", sans-serif;
+    /*line-height: 1.428571429;*/
+}
+/*footer{
+    position: absolute;
+    bottom: 0;
+    }*/
+    #divTudo {
+        position: relative;
+        min-height: 100%;
+    }
+    .divCabecalho{
+
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+
+    }
+
+    .divConteudo {
+        position: relative;
+        width: 100%;
+        margin-top: -18px;
+        background: #ffffff;
+        /*top: 0;*/
+        /*margin-top: 80px;*/
+        padding-bottom: 120px;
+    }
+
+    .divRodape {
+        position: absolute;
+        background-color: #4F4F4F;
+        width: 100%;
+        height: 150px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .divRodape h1 {
+        text-align: center;
+    }
+
+    .divRodape h5 {
+        text-align: center;     
+    }
+
+    .divVersao{
+
+        background-color: rgb(41,90,125);
+        margin-top: 0px;
+        color: #ffffff;
+        height: 50px;
+        padding-top: 10px;
+    }
+
+    img {
+
+        max-width: 100%;
+    }
+
+    p {
+        text-align: justify;
+        text-indent: 50px;
+        padding: 5px 10px;
+    }
+
+    input {
+        border-radius: 5px;
+        padding-left: 2px;
+    }
+
+/*div {
+    display: block
+    }*/
+
+/*a:link {
+    text-decoration: none;
+    font-weight: bold;
+    }*/
+
+/*a:hover {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    }*/
+
+/*a:visited {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:active {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    }*/
+
+    .divInfoTopo {
+        position: relative;
+        width: 100%;
+        height: 30px;
+        background: #4F4F4F;
+        font-family: "Montserrat", sans-serif;
+        font-size: 11px;
+        box-sizing: content-box;
+        line-height: 30px;
+        font-weight: bold;
+        border-bottom: 1px solid #dfdfdf;
+    }
+
+    .BarraTopo {
+        position: relative;
+        font-family: "Montserrat", sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+        width: 100%;
+        max-width: 1300px;
+        height: 100%;
+        background: #4F4F4F;
+    }
+
+    .BarraTopo a:hover{
+
+        text-decoration: none;
+    }
+
+    #barraInfo {
+        float: left;
+        display: flex;
+        height: auto;
+    }
+
+    .barra-bandeira {
+        background: url("../img/Bandeira_Centenário_do_Sul_26x18.png") 0px center no-repeat;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        padding-right: 5px;
+        border-right: 1px solid #dfdfdf;
+        padding-left: 30px;
+    }
+
+    .barra-parana {
+        width: 60px;
+        padding-left: 5px;
+        border-right: 1px solid #dfdfdf;
+    }
+
+    .divData{
+        padding-left: 5px;
+        cursor: default;
+        color: #fff;        
+        /*Responsável pela Data*/
+    }
+
+    .navTopInfo {
+        float: right;
+        width: 600px;
+        height: auto;
+    }
+
+    .list {
+        padding: 0px;
+        right: 0;
+    }
+
+    .divInfoTopo ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .divInfoTopo a, .divInfoTopo li {
+        color: #FFFFFF;
+        text-transform: uppercase;
+        padding-right: 5px;
+        /*font-size: 100%;*/
+        text-decoration: none;
+        font-weight: normal;
+    }
+
+    .navTopInfo a:hover, #barraInfo a:hover {
+        color: #D3D3D3;
+    }
+
+    .list-item {
+        font-size: 10px;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        padding-right: 5px;
+        border-right: 1px solid #dfdfdf;
+        text-transform: uppercase;
+    }
+
+    .item-img-info {
+        background: url("../img/acessoinformacao18x18.png") 0px center no-repeat;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        padding-right: 5px;
+        border-right: 1px solid #dfdfdf;
+        padding-left: 20px;
+    }
+/*
+    TOPO COM BANDEIRA DO MUNICÍPIO
+    */
+    #divTopo {
+        position: relative;
+        background-color: #ccc;
+        top: 0px;
+        width: 100%;
+        height: 140px;
+    /*padding-right: 20px;
+    border-right:2px solid #dfdfdf;
+    border-bottom:1px solid #dfdfdf;
+    box-sizing:content-box;
+    font-family:"Open Sans",Arial,Helvetica,sans-serif;
+    border-bottom:1px solid #dfdfdf;*/
+}
+
+.logoEsquerda {
+    display: flex;
+    position: absolute;
+    width: 400px;
+    padding: 0;
+    margin-right: 0px;
+    max-width: 70%;
+    float: left;
+}
+
+.logoDireita {
+    display: flex;
+    position: absolute;
+    float: right;
+    width: 200px;
+    padding: 0px;
+    margin-left: auto;
+    max-width: 30%;
+}
+
+#divTopo img {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.imgCentral {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 0px;
+    margin-top: -50px;
+}
+
+.painel-menu {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.Menu_Pesquisa {
+    position: relative;
+    background-color: #ccc;
+    width: 100%;
+    height: auto;
+    border-top: 2px solid rgb(11,49,76);
+    border-bottom: 2px solid rgb(11,49,76);
+}
+
+#divPesquisaMenu {
+    display: flex;
+    margin: 5px auto;
+    /*float: right;*/
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+}
+
+.divPesquisa {
+    margin: auto;
+    margin-right: 15px;
+    display: flex;
+    font-size: 14px;
+    float: right;
+}
+
+#idTxtPesquisa {
+    color: #ccc;
+    border-radius: 5px;
+    height: 25px;
+    border: 2px solid rgb(11,49,76);
+    margin-right: 2px;
+}
+
+#idTxtPesquisa:hover {
+    background-color: rgba(0,0,0,0.5);
+    color: #00A316;
+}
+
+#idBtnPesquisa {
+    color: #ffffff;
+    background-color: rgb(11,49,76);
+    border-radius: 5px;
+    width: 100px;
+    height: 25px;
+    border: 1px solid rgb(11,49,76);
+}
+
+#idBtnPesquisa:hover {
+    background-color: rgba(0,0,0,0.5);
+    color: #00A316;
+    cursor: pointer;
+}
+
+/*#idEnviar {
+    color: #ffffff;
+    background-color: rgb(11,49,76);
+    border-radius: 5px;
+    width: 100px;
+    height: 25px;
+    border: 1px solid rgb(11,49,76);
+    }*/
+
+/*#idEnviar:hover {
+        background-color: rgba(0,0,0,0.5);
+        color: #00A316;
+        cursor: pointer;
+        }*/
+
+
+        #MenuTitulo {
+            width: auto;
+        }
+
+        .MenuPrincipal {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            position: relative;
+            background-color: rgb(41,90,125);
+            font-family: "Montserrat", sans-serif;
+            color: #ffffff;
+            font-size: 14px;
+
+        }
+        .MenuPrincipal > ul > li {
+            position: relative;
+            display: inline-block;
+            list-style: none;
+            text-align: left;
+            padding: 5px;
+        }
+
+        .MenuPrincipal > ul > li:hover {
+            background-color: rgb(11,49,76);
+            transition: 0.5s;
+        }
+
+        .MenuPrincipal .nav-menu:hover {
+            position: relative;
+            z-index: 2;
+        }
+
+        .MenuPrincipal ul .Sub-menu {
+            position: absolute;
+            background-color: rgb(11,49,76);
+            list-style-type: none;
+            width: 270px;
+            padding-left: 0;
+            margin-top: 5px;
+            margin-left: -5px;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            opacity: 0;
+        }
+
+        .MenuPrincipal ul .Sub-menu li {
+            position: relative;
+            padding-left: 25px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .MenuPrincipal li:hover .Sub-menu {
+            opacity: 1;
+            transition: 0.5s;
+        }
+
+        .MenuPrincipal ul .Sub-menu li:hover {
+            color: #ffffff;
+            background-color: #656565;
+        }
+
+        .MenuPrincipal ul li a {
+            padding: 10px 0px;
+            font-family: "Montserrat", sans-serif;
+            text-decoration: none;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 1em;
+        }
+
+
+
+        /*#############FIM LAYOUT MASTER###################*/
+        button {
+            color: #ffffff;
+            background-color: rgb(11,49,76);
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid rgb(11,49,76);
+        }
+
+        button:hover {
+            background-color: rgba(0,0,0,0.5);
+            cursor: pointer;
+        }
+
+        /*############FIM CONFIGURAÃO DE FORMULARIOS############*/

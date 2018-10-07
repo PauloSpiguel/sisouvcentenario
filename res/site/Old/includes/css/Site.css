@@ -1,0 +1,352 @@
+﻿
+
+
+.divConteudo {
+    position: relative;
+    width: 100%;
+    margin-top: 0;
+    background: #ffffff;
+    margin-top: 0;
+    /*top: 0;*/
+    /*margin-top: 80px;*/
+}
+
+.divFormContent {
+    margin: 15px;
+    padding: 5px 15px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+}
+
+
+
+.para-voce {
+    text-align: center;
+    background-color: #000000;
+    height: 270px;
+    margin-top: 90px;
+    margin-bottom: 20px;
+}
+
+    .para-voce .divVoce {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+.divVoce .row {
+    margin-top: 20px;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+        .divVoce .row .btnAcesso #h3Titulo {
+            font-family: "Montserrat", sans-serif;
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 50px;
+            padding-top: 20px;
+        }
+
+.btn-branco-azul {
+    text-align: center;
+    color: white;
+    padding: 15px 25px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 10px;
+    background-color: transparent;
+    margin-left: 8px;
+    margin-right: 8px;
+    border: 1px solid white;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.wp-smiley, .emoji {
+    display: inline-flex;
+    border: none;
+    box-shadow: none;
+    height: 1.6em;
+    width: 1.6em;
+    margin: 0 .07em;
+    vertical-align: -0.1em;
+    background: none;
+    padding: 0;
+}
+
+.painel-container {
+    width: 100%;
+    height: auto;
+    background: #dddddd;
+    margin-top: 10px;
+    /*Add Responsividade ao Box*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.boxPainel {
+    width: 23%;
+    height: 100px;
+    background: #f6bf0a;
+    margin: 20px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+/*Add responsive media*/
+@media screen and (max-width:1200px) {
+    .boxPainel {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .boxPainel {
+        width: 90%;
+        margin: 10px;
+    }
+    .MenuPrincipal > ul > li {
+        position: relative;
+        list-style: none;
+        display: block;
+        text-align: center;
+        padding: 5px;
+    }
+    #divPesquisaMenu {
+        display: inline-block;
+        margin: 5px auto;
+        font-size: 14px;
+    }
+    .divPesquisa {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width:1370px) {
+    .boxPainel {
+        height: 130px;
+    }
+}
+
+@media screen and (max-width:1250px) {
+    .box {
+         border: 2px solid #f00;
+         width: 40%;
+         
+    }
+}
+
+
+#EstiloTexto {
+    text-align: center;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    align-items: center;
+    font-size: 14px;
+}
+
+.icone {
+    color: #ffffff;
+    text-align: center;
+    font-size: 40px;
+}
+
+
+#Titulo {
+    background-color: silver;
+    text-align: center;
+}
+
+#Titulo {
+    background-color: silver;
+    text-align: left;
+}
+
+#TituloTopo {
+    background-color: silver;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    text-shadow: 1px 1px 3px #333;
+    text-align: center;
+}
+
+/*PÁGINA DE MANIFESTAÇÃO*/
+
+section .para-voce2{
+    display:block;
+}
+.para-voce2 {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin-top: 0;
+    background-color: #000000;
+    background-image: url('http://www.ouvidoria.df.gov.br/wp-content/uploads/2017/11/banner-site-botao-1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    .para-voce2 .container .box .content h3 {
+        font-family: "Montserrat", sans-serif;
+        cursor: help;
+    }
+
+.container {
+    /*padding:0;*/
+    align-items: center;
+    background: transparent;
+    border-radius: 4px;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    /*Add Responsividade ao Box*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+    .container .box {
+        position: relative;
+        background: #000;
+        float: left;
+        margin: 20px 5px;
+        padding: 0;
+        width: calc(300px - 105px);
+        height: calc(200px - 20px);
+        box-sizing: border-box;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+        .container .box .icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f00;
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .container .box:hover .icon {
+            top: 20px;
+            left: calc(50% - 40px);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .container .box .icon .fa {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 80px;
+            transition: 0.5s;
+            color: #fff;
+        }
+
+        .container .box:hover .icon .fa {
+            font-size: 40px;
+            cursor: pointer;
+            color: #006400;
+        }
+
+        .container .box .icon .fa:active {
+            font-size: 60px;
+            cursor: pointer;
+            color: #ff0000;
+        }
+
+        .container .box .content {
+            position: relative;
+            top: 100%;
+            height: calc(100% - 100px);
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .container .box:hover .content {
+            top: 90px;
+            opacity: 1;
+        }
+
+        .container .box .content h3 {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .container .box .content span {
+            display: none;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .container .box:nth-child(1) .icon, .box:nth-child(2) .icon,
+        .box:nth-child(3) .icon, .box:nth-child(4) .icon,
+        .box:nth-child(5) .icon, .box:nth-child(6) .icon {
+            background: #319635;
+        }
+
+        .container .box:nth-child(1), .box:nth-child(2),
+        .box:nth-child(3), .box:nth-child(4), .box:nth-child(5),
+        .box:nth-child(6) {
+            background: #4caf50;
+        }
+
+.Tabela {
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    margin-right: 2px;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+th {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+td, th {
+    border: 1px solid #000000;
+    font-size: 12px;
+}
+
+tr {
+    background-color: #aaaaaa;
+    font-size: 12px;
+}
+
+.linhaTotal {
+    background-color: rgb(41,90,125);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.h1Titulo {
+    text-align: center;
+    width: 100%;
+    background-color: #333333;
+    color: #006400;
+    margin-bottom: 1px;
+}
