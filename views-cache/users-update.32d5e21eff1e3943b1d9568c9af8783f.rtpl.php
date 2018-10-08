@@ -24,19 +24,19 @@
                    <label for="desperson">Nome</label>
                    <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome" value="<?php echo htmlspecialchars( $user["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                </div>
-              <div class="form-group">
+              <!--<div class="form-group">
                    <label for="destypedoc">Tipo Documento</label>               
                    <select name="destypedoc" id="destypedoc" >
                   <option>Selecione...</option>
                      <option id="rg" value="rg" <?php if( $user["destypedoc"] == rg ){ ?>selected<?php } ?>>RG</option>
                      <option value="cpf" <?php if( $user["destypedoc"] == rg ){ ?>selected<?php } ?>>CPF</option>
                      <option value="passaporte" <?php if( $user["destypedoc"] == rg ){ ?>selected<?php } ?>>Passaporte</option>                
-                 <!--<option>Selecione...</option>
+                 <option>Selecione...</option>
                  <option id="rg" value="rg">RG</option>
                  <option value="cpf">CPF</option>
-                 <option value="passaporte">Passaporte</option>-->
+                 <option value="passaporte">Passaporte</option>
              </select> 
-         </div>
+         </div>-->
          <div class="form-group">
            <label for="nrdocument">Número Documento</label>
            <input type="number" class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento" value="<?php echo htmlspecialchars( $user["nrdocument"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
@@ -80,7 +80,7 @@
 </section>
 <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
+<!-- /.content-wrapper 
 <script>
    window.onload=function(){
       document.getElementById('destypedoc').addEventListener('change', function () {
@@ -88,4 +88,4 @@
         document.getElementById('hidden_div').style.display = style;
     });
   }
-</script>
+</script>-->
