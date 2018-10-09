@@ -24,50 +24,52 @@
                    <label for="desperson">Nome</label>
                    <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome" value="{$user.desperson}">
                </div>
-              <div class="form-group">
-                   <label for="destypedoc">Tipo Documento</label>               
-              <select name="destypedoc" id="destypedoc" >
-                    <option>Selecione...</option>
-                     <option id="rg" value="rg" {if="$user.destypedoc == 'rg'"}selected{/if}>RG</option>
-                     <option value="cpf" {if="$user.destypedoc == 'cpf'"}selected{/if}>CPF</option>
-                     <option value="passaporte" {if="$user.destypedoc == 'passaporte'"}selected{/if}>Passaporte</option>                
-              </select> 
-         </div>
-         <div class="form-group">
-           <label for="nrdocument">Número Documento</label>
-           <input type="number" class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento" value="{$user.nrdocument}">
-       </div>
-       <div class="form-group" id="hidden_div" style="display: none;">
-           <label for="desemitter">Orgão Emissor</label>
-           <input type="text" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="{$user.desemitter}">
-       </div>
-       <div class="form-group">
-        <label for="deslogin">Login</label>
-        <input type="text" class="form-control" id="deslogin" name="deslogin" placeholder="Digite o login"  value="{$user.deslogin}">
+               <div class="form-group">
+                   <label for="destypedoc">Tipo Documento</label></br>              
+                   <select name="destypedoc" id="destypedoc" >
+                      <option>Selecione...</option>
+                      <option id="RG" value="RG" {if="$user.destypedoc == 'RG'"}selected{/if}>RG</option>
+                      <option value="CPF" {if="$user.destypedoc == 'CPF'"}selected{/if}>CPF</option>
+                      <option value="Passaporte" {if="$user.destypedoc == 'Passaporte'"}selected{/if}>Passaporte</option>                
+                  </select> 
+              </div>
+              <div style="display: inline-flex;">
+                  <div class="form-group">
+                     <label for="nrdocument">Número Documento</label>
+                     <input type="number" style="width:100%" class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento" value="{$user.nrdocument}">
+                 </div>
+                 <div class="form-group" id="hidden_div" style="display: none; margin-left: 110px; border: 2px solid #ff0 ">
+                     <label for="desemitter">Orgão Emissor</label>
+                     <input type="text" class="form-control" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="{$user.desemitter}">
+                 </div>
+             </div>
+             <div class="form-group">
+              <label for="deslogin">Login</label>
+              <input type="text" class="form-control" id="deslogin" name="deslogin" placeholder="Digite o login"  value="{$user.deslogin}">
+          </div>
+          <div class="form-group">
+              <label for="nrphone">Telefone</label>
+              <input type="tel" class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone"  value="{$user.nrphone}">
+          </div>
+          <div class="form-group">
+              <label for="desemail">E-mail</label>
+              <input type="email" class="form-control" id="desemail" name="desemail" placeholder="Digite o e-mail" value="{$user.desemail}">
+          </div>
+          <div class="form-group">
+              <label for="inadmin">Perfil</label></br>
+              <select name="inadmin" id="inadmin">
+                <option style="display: none" value="0">Master</option>
+                <option value="1" {if="$user.inadmin == 1"}selected{/if}>Administrador</option>
+                <option value="2" {if="$user.inadmin == 2"}selected{/if}>Ouvidor</option>
+                <option value="3" {if="$user.inadmin == 3"}selected{/if}>Cidadão</option>
+                <option value="4" {if="$user.inadmin == 4"}selected{/if}>Consulta</option>
+            </select>          
+        </div>
     </div>
-    <div class="form-group">
-        <label for="nrphone">Telefone</label>
-        <input type="tel" class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone"  value="{$user.nrphone}">
-    </div>
-    <div class="form-group">
-        <label for="desemail">E-mail</label>
-        <input type="email" class="form-control" id="desemail" name="desemail" placeholder="Digite o e-mail" value="{$user.desemail}">
-    </div>
-    <div class="form-group">
-        <label for="inadmin">Perfil</label></br>
-        <select name="inadmin" id="inadmin">
-          <option style="display: none" value="0">Master</option>
-          <option value="1" {if="$user.inadmin == 1"}selected{/if}>Administrador</option>
-          <option value="2" {if="$user.inadmin == 2"}selected{/if}>Ouvidor</option>
-          <option value="3" {if="$user.inadmin == 3"}selected{/if}>Cidadão</option>
-          <option value="4" {if="$user.inadmin == 4"}selected{/if}>Consulta</option>
-      </select>          
-  </div>
-</div>
-<!-- /.box-body -->
-<div class="box-footer">
-   <button type="submit" class="btn btn-primary">Salvar</button>
-</div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+     <button type="submit" class="btn btn-primary">Salvar</button>
+ </div>
 </form>
 </div>
 </div>
@@ -80,7 +82,7 @@
 <script>
    window.onload=function(){
       document.getElementById('destypedoc').addEventListener('change', function () {
-        var style = this.value == 'rg' ? 'block' : 'none';
+        var style = this.value == 'RG' ? 'block' : 'none';
         document.getElementById('hidden_div').style.display = style;
     });
   }
