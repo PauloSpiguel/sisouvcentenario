@@ -25,22 +25,22 @@
                    <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome" value="<?php echo htmlspecialchars( $user["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                </div>
                <div class="form-group">
-                   <label for="destypedoc">Tipo Documento</label></br>              
-                   <select name="destypedoc" id="destypedoc" >
+                   <label for="destypedoc">Tipo Documento</label></br>
+                   <select name="destypedoc" id="destypedoc" style="height: 36px; width: 100%">
                       <option>Selecione...</option>
                       <option id="RG" value="RG" <?php if( $user["destypedoc"] == 'RG' ){ ?>selected<?php } ?>>RG</option>
                       <option value="CPF" <?php if( $user["destypedoc"] == 'CPF' ){ ?>selected<?php } ?>>CPF</option>
-                      <option value="Passaporte" <?php if( $user["destypedoc"] == 'Passaporte' ){ ?>selected<?php } ?>>Passaporte</option>                
-                  </select> 
+                      <option value="Passaporte" <?php if( $user["destypedoc"] == 'Passaporte' ){ ?>selected<?php } ?>>Passaporte</option>
+                  </select>
               </div>
-              <div style="display: inline-flex;">
-                  <div class="form-group">
-                     <label for="nrdocument">Número Documento</label>
-                     <input type="number" style="width:100%" class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento" value="<?php echo htmlspecialchars( $user["nrdocument"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <div class="form-select">
+                  <div class="form-group" style="float: right; margin-right: 0; margin-left: 0px; width: 100%;">
+                     <label for="nrdocument">Número do Documento</label>
+                     <input type="number" style="" class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento" value="<?php echo htmlspecialchars( $user["nrdocument"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                  </div>
-                 <div class="form-group" id="hidden_div" style="display: none; margin-left: 110px; border: 2px solid #ff0 ">
+                 <div class="form-group divEmitter" id="hidden_div">
                      <label for="desemitter">Orgão Emissor</label>
-                     <input type="text" class="form-control" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="<?php echo htmlspecialchars( $user["desemitter"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                     <input style="" type="text" class="form-control" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="<?php echo htmlspecialchars( $user["desemitter"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                  </div>
              </div>
              <div class="form-group">
@@ -57,13 +57,13 @@
           </div>
           <div class="form-group">
               <label for="inadmin">Perfil</label></br>
-              <select name="inadmin" id="inadmin">
+              <select name="inadmin" id="inadmin" style="height: 36px">
                 <option style="display: none" value="0">Master</option>
                 <option value="1" <?php if( $user["inadmin"] == 1 ){ ?>selected<?php } ?>>Administrador</option>
                 <option value="2" <?php if( $user["inadmin"] == 2 ){ ?>selected<?php } ?>>Ouvidor</option>
                 <option value="3" <?php if( $user["inadmin"] == 3 ){ ?>selected<?php } ?>>Cidadão</option>
                 <option value="4" <?php if( $user["inadmin"] == 4 ){ ?>selected<?php } ?>>Consulta</option>
-            </select>          
+            </select>
         </div>
     </div>
     <!-- /.box-body -->

@@ -6754,4 +6754,26 @@ button.close {
     display: none !important;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */
+/*# sourceMappingURL=bootstrap.css.map 
+ADIÇÃO DE CSS PERSONALIZADAS
+*/
+
+.form-select{
+  display: flex; 
+  width: 100%;
+}
+
+#hidden_div{
+  display: none;
+  margin-left: 10px;
+}
+
+@media (max-width: 380px) {
+  .form-select{
+    display: block; 
+    width: 100%;
+  }
+  #hidden_div{
+    margin-left: 0;
+  }
+}
