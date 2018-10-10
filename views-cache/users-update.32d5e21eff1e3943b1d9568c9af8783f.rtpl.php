@@ -43,7 +43,6 @@
                      <input type="text" class="form-control" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="<?php echo htmlspecialchars( $user["desemitter"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                  </div>
              </div>
-
              <div class="form-group">
               <label for="deslogin">Login</label>
               <input type="text" class="form-control" id="deslogin" name="deslogin" placeholder="Digite o login"  value="<?php echo htmlspecialchars( $user["deslogin"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
