@@ -118,6 +118,10 @@ $app->post("/AdminPainel/users/create", function () {
     $user = new User();
 
     // $_POST["inadmin"] = (isset($_POST["inadmin"])) ? 1 : 0; //Não utilizando
+    //
+    $_POST['despassword'] = password_hash($_POST["despassword"], PASSWORD_DEFAULT, [
+        "cost" => 12,
+    ]);
 
     $user->setData($_POST);
 
@@ -132,6 +136,20 @@ $app->post("/AdminPainel/users/create", function () {
 $app->post("/AdminPainel/users/:iduser", function ($iduser) {
 
     User::verifyLogin();
+
+    $user = new User();
+
+    $user->get((int) $iduser); //Select no db
+
+    $_POST["inadmin"] = (isset($_POST["inadmin"])) ? 1 : 0; //Condição verificação de valor
+
+    $user->setData($_POST); //Cria os Gets e Sets
+
+    $user->update();
+
+    header('Location: /admin/users');
+
+    exit;
 
 });
 

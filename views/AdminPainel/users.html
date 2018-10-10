@@ -29,7 +29,7 @@
                 <th style="width: 10px">#</th>
                 <th>Nome</th>
                 <th>E-mail</th>
-                <th>Telefone</th>
+                <th>Celular</th>
                 <th>Login</th>
                 <th style="width: 50px">Perfil</th>
                 <th style="width: 140px">&nbsp;</th>
