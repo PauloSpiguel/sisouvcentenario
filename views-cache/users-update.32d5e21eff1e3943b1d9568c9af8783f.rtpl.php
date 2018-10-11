@@ -22,7 +22,7 @@
              <div class="box-body">
                 <div class="form-group">
                    <label for="desperson">Nome</label>
-                   <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome" value="<?php echo htmlspecialchars( $user["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                   <input type="text" class="form-control form-custom" id="desperson" name="desperson" placeholder="Digite o nome" value="<?php echo htmlspecialchars( $user["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                </div>
                <div class="form-group">
                    <label for="destypedoc">Tipo Documento</label></br>
@@ -34,26 +34,26 @@
                   </select>
               </div>
               <div class="form-select">
-                  <div class="form-group" style="float: right; margin-right: 0; margin-left: 0px; width: 100%;">
-                     <label for="nrdocument">Número do Documento</label>
-                     <input type="number" style="" class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento" value="<?php echo htmlspecialchars( $user["nrdocument"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                 </div>
-                 <div class="form-group divEmitter" id="hidden_div">
-                     <label for="desemitter">Orgão Emissor</label>
-                     <input style="" type="text" class="form-control" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="<?php echo htmlspecialchars( $user["desemitter"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                 </div>
-             </div>
-             <div class="form-group">
+                <div class="form-group" style="float: right; width: 100%;">
+                   <label for="nrdocument">Número do Documento</label>
+                   <input type="number" style="" class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento" value="<?php echo htmlspecialchars( $user["nrdocument"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+               </div>
+               <div class="form-group divEmitter" id="hidden_div">
+                   <label for="desemitter">Orgão Emissor</label>
+                   <input style="" type="text" class="form-control form-custom" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="<?php echo htmlspecialchars( $user["desemitter"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onload="myFunction()">
+               </div>
+           </div>
+           <div class="form-group">
               <label for="deslogin">Login</label>
               <input type="text" class="form-control" id="deslogin" name="deslogin" placeholder="Digite o login"  value="<?php echo htmlspecialchars( $user["deslogin"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
           </div>
           <div class="form-group">
-              <label for="nrphone">Telefone</label>
+              <label for="nrphone">Celular</label>
               <input type="tel" class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone"  value="<?php echo htmlspecialchars( $user["nrphone"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
           </div>
           <div class="form-group">
               <label for="desemail">E-mail</label>
-              <input type="email" class="form-control" id="desemail" name="desemail" placeholder="Digite o e-mail" value="<?php echo htmlspecialchars( $user["desemail"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+              <input type="email" class="form-control" style="text-transform: lowercase;" id="desemail" name="desemail" placeholder="Digite o e-mail" value="<?php echo htmlspecialchars( $user["desemail"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
           </div>
           <div class="form-group">
               <label for="inadmin">Perfil</label></br>
@@ -69,7 +69,7 @@
     <!-- /.box-body -->
     <div class="box-footer">
      <button type="submit" class="btn btn-primary">Salvar</button>
- </div>
+   </div>
 </form>
 </div>
 </div>
@@ -79,11 +79,21 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<script>
-   window.onload=function(){
-      document.getElementById('destypedoc').addEventListener('change', function () {
-        var style = this.value == 'RG' ? 'block' : 'none';
-        document.getElementById('hidden_div').style.display = style;
-    });
-  }
+<script type="text/javascript" DEFER="DEFER">
+  // INICIO FUNÇÃO DE MOSTRA ORGÃO EMISSOR
+  window.onload=function(){
+    document.getElementById('destypedoc').addEventListener('change', function () {
+      var style = this.value == 'RG' ? 'block' : 'none';
+      document.getElementById('hidden_div').style.display = style;
+   });
+ }
+ function myFunction() {
+  if (this.value == 'RG') alert("Page is loaded");
+}
+  // INICIO FUNÇÃO DE MASCARA MAIUSCULA
+  function maiuscula(z){
+    v = z.value.toUpperCase();
+    z.value = v;
+ }
+//FIM DA FUNÇÃO MASCARA MAIUSCULA
 </script>

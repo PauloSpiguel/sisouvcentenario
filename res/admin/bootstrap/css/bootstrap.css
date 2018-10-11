@@ -6757,7 +6757,9 @@ button.close {
 /*# sourceMappingURL=bootstrap.css.map 
 ADIÇÃO DE CSS PERSONALIZADAS
 */
-
+.form-custom{
+  text-transform: uppercase;
+}
 .form-select{
   display: flex; 
   width: 100%;

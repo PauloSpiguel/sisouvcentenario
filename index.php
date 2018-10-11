@@ -79,7 +79,7 @@ $app->get('/AdminPainel/users', function () {
 
 });
 ################## ROTA CREATE USUARIOS ######################
-$app->get('/AdminPainel/create', function () {
+$app->get('/AdminPainel/users/create', function () {
 
     User::verifyLogin();
 
@@ -95,7 +95,7 @@ $app->get("/AdminPainel/users/:iduser/delete", function ($iduser) {
 
 });
 ################## UPDATE USUARIOS ######################
-$app->get("/AdminPainel/users/:iduser", function ($iduser) {
+$app->get('/AdminPainel/users/:iduser', function ($iduser) {
 
     User::verifyLogin();
 
@@ -111,7 +111,7 @@ $app->get("/AdminPainel/users/:iduser", function ($iduser) {
 
 });
 ################## CRIA O USUARIOS ######################
-$app->post("/AdminPainel/users/create", function () {
+$app->post('/AdminPainel/users/create', function () {
 
     User::verifyLogin();
 
