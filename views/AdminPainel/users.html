@@ -44,18 +44,22 @@
                 <td>{$value.nrphone}</td>
                 <td>{$value.deslogin}</td/>
                   <td>
-                  {if="$value.inadmin == 1"}
+                    {if="$value.inadmin == 0"}
+                    Master
+                    {else}
+                    {if="$value.inadmin == 1"}
                     Administrador
                     {else}
-                      {if="$value.inadmin == 2"}
-                      Ouvidor
-                      {else}
-                        {if="$value.inadmin == 3"}
-                        Cidadão
-                        {else}
-                        Consulta
-                        {/if}
-                      {/if}
+                    {if="$value.inadmin == 2"}
+                    Ouvidor
+                    {else}
+                    {if="$value.inadmin == 3"}
+                    Cidadão
+                    {else}
+                    Consulta
+                    {/if}
+                    {/if}
+                    {/if}
                     {/if}
                   </td>
                   <td>

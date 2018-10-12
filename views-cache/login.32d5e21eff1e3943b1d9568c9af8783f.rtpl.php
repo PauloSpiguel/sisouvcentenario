@@ -83,16 +83,16 @@
       </div>
       <div class="user_forms-forgot">
         <h2 class="forms_title">Esqueci a Senha</h2>
-        <form class="forms_form">
+        <form class="forms_form" action="/AdminPainel/forgot" method="post">
           <fieldset class="forms_fieldset">
             <div class="forms_field">
-              <input type="email" placeholder="Email" class="forms_field-input"  />
+              <input type="email" name="email" placeholder="Email" class="forms_field-input"  />
             </div>
           </fieldset>
           <div class="forms_buttons">
             <button type="submit" class="forms_buttons-action">Resetar senha</button>         
           </div>
-          <button class="user_unregistered-signup" id="back-button">Voltar</button>
+          <button style="color: #f00" class="user_unregistered-signup" id="back-button">Voltar</button>
         </form>
       </div>
     </div>

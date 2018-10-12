@@ -1,7 +1,8 @@
 <?php
 session_start();
 require_once "vendor/autoload.php";
-//Tras as dependencias do sistema
+require_once "vendor/hcodebr/php-classes/src/DB/SecretAdmin.php";
+//Traz as dependências do sistema
 
 use \SisOuvWeb\Model\User; //namespaces Site
 use \SisOuvWeb\Page; //namespaces
@@ -93,6 +94,16 @@ $app->get("/AdminPainel/users/:iduser/delete", function ($iduser) {
 
     User::verifyLogin();
 
+    $user = new User();
+
+    $user->get((int)$iduser);
+
+    $user->delete();
+
+    header('Location: /AdminPainel/users');
+
+    exit;
+
 });
 ################## UPDATE USUARIOS ######################
 $app->get('/AdminPainel/users/:iduser', function ($iduser) {
@@ -132,7 +143,7 @@ $app->post('/AdminPainel/users/create', function () {
     exit;
 
 });
-################## SALVAR O USUARIOS ######################
+################## UPDATE USUARIOS ######################
 $app->post("/AdminPainel/users/:iduser", function ($iduser) {
 
     User::verifyLogin();
@@ -141,16 +152,50 @@ $app->post("/AdminPainel/users/:iduser", function ($iduser) {
 
     $user->get((int) $iduser); //Select no db
 
-    $_POST["inadmin"] = (isset($_POST["inadmin"])) ? 1 : 0; //Condição verificação de valor
+    //$_POST["inadmin"] = (isset($_POST["inadmin"])) ? 1 : 0; //Condição verificação de valor  
 
     $user->setData($_POST); //Cria os Gets e Sets
 
     $user->update();
 
-    header('Location: /admin/users');
+    header('Location: /AdminPainel/users');
 
     exit;
 
 });
+################## CARREGA TELA DE RECUPERAÇÃO DE SENHA ######################
+$app->get("/AdminPainel/forgot", function(){
+
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot");
+
+});
+################## ROTA RECUPERAÇÃO DE SENHA ######################
+$app->post("/AdminPainel/forgot", function(){
+
+  $user = User::getForgot($_POST["email"]);
+
+  header("Location: /AdminPainel/forgot/sent");
+
+  exit;
+
+});
+################## UPDATE USUARIOS ######################
+$app->get("/AdminPainel/forgot/sent", function(){
+
+    $page = new PageAdmin([
+        "header" => false,
+        "footer" =>false
+    ]);
+
+    $page->setTpl("forgot-sent");
+
+});
+
 
 $app->run();
+

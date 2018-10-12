@@ -4,6 +4,7 @@ namespace SisOuvWeb\Model;
 
 use \SisOuvWeb\DB\Sql;
 use \SisOuvWeb\Model;
+use \SisOuvWeb\Mailer;
 
 class User extends Model
 {
@@ -76,7 +77,9 @@ class User extends Model
 
         $sql = new Sql();
 
-        return $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson");
+        return $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE inadmin != :inadmin ORDER BY b.desperson", array(
+            ":inadmin" => -1
+        ));
 
     }
 
@@ -111,5 +114,85 @@ class User extends Model
 
         $this->setData($results[0]);
     }
+
+    public function update()
+    {
+        $sql = new Sql();
+
+        $results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :destypedoc, :nrdocument, :desemitter, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+            ":iduser"      => $this->getiduser(),
+            ":desperson"   => $this->getdesperson(),
+            ":destypedoc"  => $this->getdestypedoc(),
+            ":nrdocument"  => $this->getnrdocument(),
+            ":desemitter"  => $this->getdesemitter(),
+            ":deslogin"    => $this->getdeslogin(),
+            ":despassword" => $this->getdespassword(),
+            ":desemail"    => $this->getdesemail(),
+            ":nrphone"     => $this->getnrphone(),
+            ":inadmin"     => $this->getinadmin(),
+        ));
+
+        $this->setData($results[0]);
+    }
+
+    public function delete()
+    {
+        $sql = new Sql();
+
+        $sql->query("CALL sp_users_delete(:iduser)", array(
+            ":iduser" => $this->getiduser()
+        ));
+    }
+
+    public static function getForgot($email){
+
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT * FROM tb_persons a INNER JOIN tb_users b USING(idperson) WHERE a.desemail = :email;", array(
+            ":email"=>$email
+
+        ));
+
+        if(count($results) === 0){
+
+            throw new \Exception("Não foi possível recuperar a senha.");         
+
+        }else{
+
+            $data = $results[0];
+
+            $resultsRecovery = $sql->select("CALL sp_userspasswordsrecoveries_create(:iduser, :desip)", array(
+                ":iduser" => $data["iduser"],
+                ":desip" => $_SERVER["REMOTE_ADDR"]
+            ));
+
+
+            if(count($resultsRecovery) === 0){
+
+                throw new \Exception("Não foi possível recuperar a senha.");
+                
+            }else{
+
+                $dataRecovery = $resultsRecovery[0];
+                $iv = random_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+                $code = openssl_encrypt($dataRecovery['idrecovery'], 'aes-256-cbc', SECRET, 0, $iv);
+                $result = base64_encode($iv.$code);
+                //if ($inadmin === true) {
+                   $link = "http://www.sisouvcentenario.newtechtecnologia.com/AdminPainel/forgot/reset?code=$result";
+               //} else {
+                   //$link = "http://www.sisouvcentenario.newtechtecnologia.com/forgot/reset?code=$result";
+               //} 
+               $mailer = new Mailer($data['desemail'], $data['desperson'], utf8_decode("Redefinir sua senha do SisOuvWeb - Centenário do Sul"), "forgot", array(
+                   "name"=>$data['desperson'],
+                   "link"=>$link
+               )); 
+               $mailer->send();
+
+               return $data;
+           }
+
+       }
+
+   }
 
 }

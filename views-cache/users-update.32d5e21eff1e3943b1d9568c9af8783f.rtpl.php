@@ -40,7 +40,7 @@
                </div>
                <div class="form-group divEmitter" id="hidden_div">
                    <label for="desemitter">Orgão Emissor</label>
-                   <input style="" type="text" class="form-control form-custom" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="<?php echo htmlspecialchars( $user["desemitter"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onload="myFunction()">
+                   <input style="" type="text" class="form-control form-custom" name="desemitter" id="desemitter" placeholder="Digite o Orgão Emissor" value="<?php echo htmlspecialchars( $user["desemitter"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                </div>
            </div>
            <div class="form-group">
@@ -58,7 +58,7 @@
           <div class="form-group">
               <label for="inadmin">Perfil</label></br>
               <select name="inadmin" id="inadmin" style="height: 36px">
-                <option style="display: none" value="0">Master</option>
+                <option style="display: none" value="0" <?php if( $user["inadmin"] == 0 ){ ?>selected<?php } ?>>Master</option>
                 <option value="1" <?php if( $user["inadmin"] == 1 ){ ?>selected<?php } ?>>Administrador</option>
                 <option value="2" <?php if( $user["inadmin"] == 2 ){ ?>selected<?php } ?>>Ouvidor</option>
                 <option value="3" <?php if( $user["inadmin"] == 3 ){ ?>selected<?php } ?>>Cidadão</option>
