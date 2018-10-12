@@ -9,6 +9,8 @@ use Rain\Tpl;
  */
 class Mailer
 {
+
+	private $mail;
 	
 	function __construct($toAddress, $toName, $subject, $tplName, $data = array())
 	{
