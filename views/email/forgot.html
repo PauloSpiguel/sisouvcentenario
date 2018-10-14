@@ -382,11 +382,8 @@
       <tr class="header-background">
         <td class="header container" align="center">
           <div class="content">
-            <span class="brand">
-              <a href="#">
-                SisOuvWeb - Centenário do Sul
-              </a>
-            </span>
+            <img src="">
+            <span class="brand"><a href="#">SisOuvWeb - Centenário do Sul</a></span>
           </div>
         </td>
       </tr>
@@ -429,7 +426,7 @@
                           <tr>
                             <td class="body-signature-cell">
                               <p>Obrigado!</p>
-                              <p class="body-signature"><img src="https://www.filepicker.io/api/file/2R9HpqboTPaB4NyF35xt" alt="Company Name"></p>
+                              <p class="body-signature"><img style="width: 60%" src="http://www.centenariodosul.pr.gov.br/public/site/images/logo/logo.png" alt="Governo Municipal de Centenário do Sul"></p>
                             </td>
                           </tr>
                         </table>
@@ -462,11 +459,11 @@
         <td></td>
         <td class="container">
           <div class="content">
-            <a href="#">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="#">Contato</a>&nbsp;&nbsp;|&nbsp;&nbsp;
             <span class="footer-group">
               <a href="#">Facebook</a>&nbsp;&nbsp;|&nbsp;&nbsp;
               <a href="#">Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-              <a href="#">Support</a>
+              <a href="#">Suporte</a>
             </span>
           </div>
         </td>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -20,27 +20,42 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+<![endif]-->
 </head>
 <body class="hold-transition lockscreen">
-<!-- Automatic element centering -->
-<div class="lockscreen-wrapper">
-  <div class="lockscreen-logo">
-    <img style="width: 80%" src="../../res/site/img/logo.png">
-    <a href="/res/admin/index2.html"><b>SisOuvWeb</b></br>Recuperação de Senha</a>
-  </div>
-
-  <!-- /.lockscreen-item -->
-  <div class="help-block text-center">
-    <div class="callout callout-success">
-      <h4>E-mail enviado!</h4>
-      <p>Verifique as instruções de redefinição em seu e-mail.</p>
+  <!-- Automatic element centering -->
+  <div class="lockscreen-wrapper">
+    <div class="lockscreen-logo">
+      <img style="width: 80%" src="../../res/site/img/logo.png">
+      <a href="/res/admin/index2.html"><b>SisOuvWeb</b></br></a>
     </div>
+
+    <div class="help-block text-center">
+     Olá <?php echo htmlspecialchars( $name, ENT_COMPAT, 'UTF-8', FALSE ); ?>, digite uma nova senha:
+   </div>
+
+   <!-- START LOCK SCREEN ITEM -->
+   <div class="lockscreen-item">
+
+    <!-- lockscreen credentials (contains the form) -->
+    <form  action="/AdminPainel/forgot/reset" method="post">
+      <input type="hidden" name="code" value="<?php echo htmlspecialchars( $code, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+      <div class="input-group">
+        <input type="password" class="form-control" placeholder="Digite a nova senha" name="password">
+        <div class="input-group-btn">
+          <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
+        </div>
+      </div>
+    </form>
+    <!-- /.lockscreen credentials -->
+
   </div>
+  <!-- /.lockscreen-item -->
+  
   <div class="lockscreen-footer text-center">
-    Copyright &copy; 2018 <b><a href="#" class="text-black">NewTech Informática | SI-Centenário do Sul</a></b><br>
-    Todos os direitos reservados
-  </div>
+   Copyright &copy; 2018 <b><a href="#" class="text-black">NewTech Informática | SI-Centenário do Sul</a></b><br>
+   Todos os direitos reservados
+ </div>
 </div>
 <!-- /.center -->
 

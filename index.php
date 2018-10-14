@@ -195,7 +195,47 @@ $app->get("/AdminPainel/forgot/sent", function(){
     $page->setTpl("forgot-sent");
 
 });
+################## ROTA PARA DEFINIÇÃO DE SENHA USUARIOS ######################
+$app->get("/AdminPainel/forgot/reset", function(){
+#Digitando este endereço no navegador será redirecionado para a página abaixo
 
+    $user = User::validForgotDecrypt($_GET["code"]);
 
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot-reset", array(
+        "name"=>$user["desperson"],
+        "code"=>$_GET["code"]
+    ));//Esta aqui
+
+});
+################## MONTANDO A TELA PRA DEFINIÇÃO DE SENHA USUARIOS ######################
+$app->post("/AdminPainel/forgot/reset", function(){
+
+    $forgot = User::validForgotDecrypt($_POST["code"]);
+
+    User::setForgotUsed($forgot["idrecovery"]);
+
+    $user = new User();
+
+    $user->get((int)$forgot["iduser"]);
+
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT,[
+        "cost" => 12
+    ]);//hash a senha
+
+    $user->setPassword($password);
+
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot-reset-success");
+
+});
 $app->run();
 

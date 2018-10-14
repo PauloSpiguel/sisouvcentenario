@@ -6758,7 +6758,7 @@ button.close {
 ADIÇÃO DE CSS PERSONALIZADAS
 */
 .form-custom{
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 .form-select{
   display: flex; 

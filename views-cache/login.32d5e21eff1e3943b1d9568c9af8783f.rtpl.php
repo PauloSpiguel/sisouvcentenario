@@ -46,7 +46,7 @@
         <form class="forms_form" action="/AdminPainel/login" method="post">
           <fieldset class="forms_fieldset">
             <div class="forms_field">
-              <input type="text" name="login" placeholder="Login" class="forms_field-input" required autofocus />
+              <input type="text" name="login" placeholder="Login" class="forms_field-input" required autofocus onkeyup="maiuscula(this)" />
               <span class="glyphicon glyphicon-user form-control-feed"></span>         
             </div>
             <div class="forms_field">
@@ -100,6 +100,13 @@
 </section>
 
 <script  src="../../res/admin/bootstrap/js/login.js"></script>
+<script type="text/javascript">
+  function maiuscula(z){
+    v = z.value.toUpperCase();
+    z.value = v;
+ }
+</script>
+
 
 </body>
 

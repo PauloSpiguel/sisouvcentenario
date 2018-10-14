@@ -32,7 +32,7 @@
                 <th>Celular</th>
                 <th>Login</th>
                 <th style="width: 50px">Perfil</th>
-                <th style="width: 140px">&nbsp;</th>
+                <th style="width: 160px">&nbsp;</th>
               </tr>
             </thead>
             <tbody>
@@ -63,20 +63,21 @@
                     <?php } ?>
                   </td>
                   <td>
-                  <a href="/AdminPainel/users/<?php echo htmlspecialchars( $value1["iduser"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
-                  <a href="/AdminPainel/users/<?php echo htmlspecialchars( $value1["iduser"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-                </td>
-              </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-        </div>
-        <!-- /.box-body -->
-      </div>
-    </div>
-  </div>
+                   <a href="/AdminPainel/users/<?php echo htmlspecialchars( $value1["iduser"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" onclick="return confirm('Deseja realmente alter a senha este registro?')" class="btn btn-warning btn-xs disabled"><i class="fa fa-lock"></i></a>
+                   <a href="/AdminPainel/users/<?php echo htmlspecialchars( $value1["iduser"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                   <a href="/AdminPainel/users/<?php echo htmlspecialchars( $value1["iduser"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>                   
+                 </td>
+               </tr>
+               <?php } ?>
+             </tbody>
+           </table>
+         </div>
+         <!-- /.box-body -->
+       </div>
+     </div>
+   </div>
 
-</section>
-<!-- /.content -->
+ </section>
+ <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

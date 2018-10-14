@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -26,20 +26,20 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <img style="width: 80%" src="../../res/site/img/logo.png">
-    <a href="/res/admin/index2.html"><b>SisOuvWeb</b></br>Recuperação de Senha</a>
+   <img style="width: 80%" src="../../res/site/img/logo.png">
+      <a href="/res/admin/index2.html"><b>SisOuvWeb</b></br></a>
   </div>
 
   <!-- /.lockscreen-item -->
   <div class="help-block text-center">
     <div class="callout callout-success">
-      <h4>E-mail enviado!</h4>
-      <p>Verifique as instruções de redefinição em seu e-mail.</p>
+      <h4>Senha Alterada!</h4>
+      <p>Tente fazer o login com sua nova senha.<br><a href="/AdminPainel/login">Clique aqui</a> para fazer o login.</p>
     </div>
   </div>
   <div class="lockscreen-footer text-center">
     Copyright &copy; 2018 <b><a href="#" class="text-black">NewTech Informática | SI-Centenário do Sul</a></b><br>
-    Todos os direitos reservados
+   Todos os direitos reservados
   </div>
 </div>
 <!-- /.center -->
