@@ -55,18 +55,20 @@
             <label for="desemail">E-mail</label>
             <input class="form-control" style="text-transform: lowercase;" id="desemail" name="desemail" placeholder="Digite o e-mail" type="email"></input>
           </div>-->
-          <div class="form-group">
-            <select name="idPersons">
-              <?php $counter1=-1;  if( isset($persons) && ( is_array($persons) || $persons instanceof Traversable ) && sizeof($persons) ) foreach( $persons as $key1 => $value1 ){ $counter1++; ?>
-              <option value="<?php echo htmlspecialchars( $persons["idPersons"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
-              <?php } ?>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="desfunction">Função</label></br>
-            <input type="text" name="desfunction" id="desfunction" style="height: 36px">
-          </div>
-        </div>  
+          <div style="display: inline;">
+            <div class="form-group">
+              <select name="idPersons">
+                <?php $counter1=-1;  if( isset($person) && ( is_array($person) || $person instanceof Traversable ) && sizeof($person) ) foreach( $person as $key1 => $value1 ){ $counter1++; ?>
+                <option value="<?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
+                <?php } ?>
+              </select>   
+            </div>        
+            <div class="form-group">
+              <label for="desfunction">Função</label></br>
+              <input type="text" name="desfunction" id="desfunction" style="height: 36px">
+            </div>
+          </div>  
+        </div>
         <!-- /.box-body -->
         <div class="box-footer">
           <button class="btn btn-success" type="submit">Cadastrar</button>

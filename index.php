@@ -259,10 +259,12 @@ $app->get('/AdminPainel/responsables/create', function () {
 
     $persons = Responsable::listPersons();
 
+    //var_dump($persons);
+
     $page = new PageAdmin();
 
     $page->setTpl("responsables-create", [
-        "responsables-create" => $persons
+        "person" => $persons
     ]);
 
 });
