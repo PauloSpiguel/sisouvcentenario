@@ -5,6 +5,7 @@ require_once "vendor/hcodebr/php-classes/src/DB/SecretAdmin.php";
 //Traz as dependências do sistema
 
 use \SisOuvWeb\Model\User; //namespaces Site
+use \SisOuvWeb\Model\Responsable; //namespaces Site
 use \SisOuvWeb\Page; //namespaces
 use \SisOuvWeb\PageAdmin;
 use \Slim\Slim;
@@ -235,6 +236,60 @@ $app->post("/AdminPainel/forgot/reset", function(){
     ]);
 
     $page->setTpl("forgot-reset-success");
+
+});
+################## ROTA LISTAR RESPONSÁVEIS ######################
+$app->get('/AdminPainel/responsables', function () {
+
+    User::verifyLogin();
+
+    $responsables = Responsable::listAll();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("responsables", [
+        "responsables" => $responsables
+    ]);
+
+});
+################## LISTAR USUÁRIOS EM RESPONSÁVEIS ######################
+$app->get('/AdminPainel/responsables/create', function () {
+
+    User::verifyLogin();
+
+    $persons = Responsable::listPersons();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("responsables-create", [
+        "responsables-create" => $persons
+    ]);
+
+});
+################## ROTA CREATE RESPONSÁVEIS ######################
+$app->get('/AdminPainel/responsables/create', function () {
+
+    User::verifyLogin();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("responsables-create");
+
+});
+################## CREATE O RESPONSÁVEIS ######################
+$app->post('/AdminPainel/responsables/create', function () {
+
+    User::verifyLogin();
+
+    $user = new User();
+
+    $user->setData($_POST);
+
+    $user->save();
+
+    header("Location: /AdminPainel/responsables");
+
+    exit;
 
 });
 $app->run();
