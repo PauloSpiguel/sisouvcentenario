@@ -32,7 +32,7 @@
                 <th>Celular</th>
                 <th>Login</th>
                 <th style="width: 50px">Perfil</th>
-                <th style="width: 140px">&nbsp;</th>
+                <th style="width: 160px">&nbsp;</th>
               </tr>
             </thead>
             <tbody>
@@ -44,35 +44,40 @@
                 <td>{$value.nrphone}</td>
                 <td>{$value.deslogin}</td/>
                   <td>
-                  {if="$value.inadmin == 1"}
+                    {if="$value.inadmin == 0"}
+                    Master
+                    {else}
+                    {if="$value.inadmin == 1"}
                     Administrador
                     {else}
-                      {if="$value.inadmin == 2"}
-                      Ouvidor
-                      {else}
-                        {if="$value.inadmin == 3"}
-                        Cidadão
-                        {else}
-                        Consulta
-                        {/if}
-                      {/if}
+                    {if="$value.inadmin == 2"}
+                    Ouvidor
+                    {else}
+                    {if="$value.inadmin == 3"}
+                    Cidadão
+                    {else}
+                    Consulta
+                    {/if}
+                    {/if}
+                    {/if}
                     {/if}
                   </td>
                   <td>
-                  <a href="/AdminPainel/users/{$value.iduser}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
-                  <a href="/AdminPainel/users/{$value.iduser}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-                </td>
-              </tr>
-              {/loop}
-            </tbody>
-          </table>
-        </div>
-        <!-- /.box-body -->
-      </div>
-    </div>
-  </div>
+                   <a href="/AdminPainel/users/{$value.iduser}" onclick="return confirm('Deseja realmente alter a senha este registro?')" class="btn btn-warning btn-xs disabled"><i class="fa fa-lock"></i></a>
+                   <a href="/AdminPainel/users/{$value.iduser}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                   <a href="/AdminPainel/users/{$value.iduser}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>                   
+                 </td>
+               </tr>
+               {/loop}
+             </tbody>
+           </table>
+         </div>
+         <!-- /.box-body -->
+       </div>
+     </div>
+   </div>
 
-</section>
-<!-- /.content -->
+ </section>
+ <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

@@ -1,9 +1,11 @@
 <?php
 session_start();
 require_once "vendor/autoload.php";
-//Tras as dependencias do sistema
+require_once "vendor/hcodebr/php-classes/src/DB/SecretAdmin.php";
+//Traz as dependências do sistema
 
 use \SisOuvWeb\Model\User; //namespaces Site
+use \SisOuvWeb\Model\Responsable; //namespaces Site
 use \SisOuvWeb\Page; //namespaces
 use \SisOuvWeb\PageAdmin;
 use \Slim\Slim;
@@ -79,7 +81,7 @@ $app->get('/AdminPainel/users', function () {
 
 });
 ################## ROTA CREATE USUARIOS ######################
-$app->get('/AdminPainel/create', function () {
+$app->get('/AdminPainel/users/create', function () {
 
     User::verifyLogin();
 
@@ -93,9 +95,19 @@ $app->get("/AdminPainel/users/:iduser/delete", function ($iduser) {
 
     User::verifyLogin();
 
+    $user = new User();
+
+    $user->get((int)$iduser);
+
+    $user->delete();
+
+    header('Location: /AdminPainel/users');
+
+    exit;
+
 });
 ################## UPDATE USUARIOS ######################
-$app->get("/AdminPainel/users/:iduser", function ($iduser) {
+$app->get('/AdminPainel/users/:iduser', function ($iduser) {
 
     User::verifyLogin();
 
@@ -111,7 +123,7 @@ $app->get("/AdminPainel/users/:iduser", function ($iduser) {
 
 });
 ################## CRIA O USUARIOS ######################
-$app->post("/AdminPainel/users/create", function () {
+$app->post('/AdminPainel/users/create', function () {
 
     User::verifyLogin();
 
@@ -132,7 +144,7 @@ $app->post("/AdminPainel/users/create", function () {
     exit;
 
 });
-################## SALVAR O USUARIOS ######################
+################## UPDATE USUARIOS ######################
 $app->post("/AdminPainel/users/:iduser", function ($iduser) {
 
     User::verifyLogin();
@@ -141,16 +153,144 @@ $app->post("/AdminPainel/users/:iduser", function ($iduser) {
 
     $user->get((int) $iduser); //Select no db
 
-    $_POST["inadmin"] = (isset($_POST["inadmin"])) ? 1 : 0; //Condição verificação de valor
+    //$_POST["inadmin"] = (isset($_POST["inadmin"])) ? 1 : 0; //Condição verificação de valor  
 
     $user->setData($_POST); //Cria os Gets e Sets
 
     $user->update();
 
-    header('Location: /admin/users');
+    header('Location: /AdminPainel/users');
 
     exit;
 
 });
+################## CARREGA TELA DE RECUPERAÇÃO DE SENHA ######################
+$app->get("/AdminPainel/forgot", function(){
 
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot");
+
+});
+################## ROTA RECUPERAÇÃO DE SENHA ######################
+$app->post("/AdminPainel/forgot", function(){
+
+  $user = User::getForgot($_POST["email"]);
+
+  header("Location: /AdminPainel/forgot/sent");
+
+  exit;
+
+});
+################## UPDATE USUARIOS ######################
+$app->get("/AdminPainel/forgot/sent", function(){
+
+    $page = new PageAdmin([
+        "header" => false,
+        "footer" =>false
+    ]);
+
+    $page->setTpl("forgot-sent");
+
+});
+################## ROTA PARA DEFINIÇÃO DE SENHA USUARIOS ######################
+$app->get("/AdminPainel/forgot/reset", function(){
+#Digitando este endereço no navegador será redirecionado para a página abaixo
+
+    $user = User::validForgotDecrypt($_GET["code"]);
+
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot-reset", array(
+        "name"=>$user["desperson"],
+        "code"=>$_GET["code"]
+    ));//Esta aqui
+
+});
+################## MONTANDO A TELA PRA DEFINIÇÃO DE SENHA USUARIOS ######################
+$app->post("/AdminPainel/forgot/reset", function(){
+
+    $forgot = User::validForgotDecrypt($_POST["code"]);
+
+    User::setForgotUsed($forgot["idrecovery"]);
+
+    $user = new User();
+
+    $user->get((int)$forgot["iduser"]);
+
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT,[
+        "cost" => 12
+    ]);//hash a senha
+
+    $user->setPassword($password);
+
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot-reset-success");
+
+});
+################## ROTA LISTAR RESPONSÁVEIS ######################
+$app->get('/AdminPainel/responsables', function () {
+
+    User::verifyLogin();
+
+    $responsables = Responsable::listAll();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("responsables", [
+        "responsables" => $responsables
+    ]);
+
+});
+################## LISTAR USUÁRIOS EM RESPONSÁVEIS ######################
+$app->get('/AdminPainel/responsables/create', function () {
+
+    User::verifyLogin();
+
+    $persons = Responsable::listPersons();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("responsables-create", [
+        "responsables-create" => $persons
+    ]);
+
+});
+################## ROTA CREATE RESPONSÁVEIS ######################
+$app->get('/AdminPainel/responsables/create', function () {
+
+    User::verifyLogin();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("responsables-create");
+
+});
+################## CREATE O RESPONSÁVEIS ######################
+$app->post('/AdminPainel/responsables/create', function () {
+
+    User::verifyLogin();
+
+    $user = new User();
+
+    $user->setData($_POST);
+
+    $user->save();
+
+    header("Location: /AdminPainel/responsables");
+
+    exit;
+
+});
 $app->run();
+

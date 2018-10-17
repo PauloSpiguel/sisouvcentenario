@@ -1,14 +1,14 @@
-<!-- Content Wrapper. Contains page content -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
  <!-- Content Header (Page header) -->
  <section class="content-header">
-  <h1>Lista de Usuários</h1>
+  <h1>Lista de Responsáveis</h1>
   <ol class="breadcrumb">
    <li>
     <a href="/AdminPainel"><i class="fa fa-dashboard"></i>Home</a></li>
     <li>
-     <a href="/AdminPainel/users">Usuários</a></li><li class="active">
-      <a href="/AdminPainel/users/create">Cadastrar</a>
+     <a href="/AdminPainel/responsables">Responsáveis</a></li><li class="active">
+      <a href="/AdminPainel/responsables/create">Cadastrar</a>
     </li>
   </ol>
 </section>
@@ -18,11 +18,11 @@
     <div class="col-md-12">
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">Novo Usuário</h3>
+          <h3 class="box-title">Novo Responsável</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/AdminPainel/users/create" method="post">
+         <!-- <form role="form" action="/AdminPainel/responsables/create" method="post">
           <div class="box-body">
             <div class="form-group">
               <label for="desperson">Nome</label>
@@ -48,39 +48,32 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="deslogin">Login</label>
-            <input class="form-control" id="deslogin" name="deslogin" placeholder="Digite o login" type="text" onkeyup="maiuscula(this)"></input>
-          </div>
-          <div class="form-group">
-            <label for="nrphone">Celular</label>
+            <label for="nrphone">Telefone</label>
             <input class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone" type="tel"></input>
           </div>
           <div class="form-group">
             <label for="desemail">E-mail</label>
             <input class="form-control" style="text-transform: lowercase;" id="desemail" name="desemail" placeholder="Digite o e-mail" type="email"></input>
+          </div>-->
+          <div class="form-group">
+            <select name="idPersons">
+              <?php $counter1=-1;  if( isset($persons) && ( is_array($persons) || $persons instanceof Traversable ) && sizeof($persons) ) foreach( $persons as $key1 => $value1 ){ $counter1++; ?>
+              <option value="<?php echo htmlspecialchars( $persons["idPersons"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
+              <?php } ?>
+            </select>
           </div>
           <div class="form-group">
-            <label for="despassword">Senha</label>
-            <input class="form-control" id="despassword" name="despassword" placeholder="Digite a senha" type="password"></input>
+            <label for="desfunction">Função</label></br>
+            <input type="text" name="desfunction" id="desfunction" style="height: 36px">
           </div>
-          <div class="form-group">
-            <label for="inadmin">Perfil</label></br>
-            <select name="inadmin" id="inadmin" style="height: 36px">
-             <option style="display: none" value="0">Master</option>
-             <option value="1">Administrador</option>
-             <option value="2">Ouvidor</option>
-             <option value="3">Cidadão</option>
-             <option selected="selected" value="4">Consulta</option>
-           </select>
-         </div>
-       </div>  
-       <!-- /.box-body -->
-       <div class="box-footer">
-        <button class="btn btn-success" type="submit">Cadastrar</button>
-      </div>  
-    </form>                 
+        </div>  
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <button class="btn btn-success" type="submit">Cadastrar</button>
+        </div>  
+      </form>                 
+    </div>
   </div>
-</div>
 </div>
 </section>
 <!-- /.content -->
@@ -115,5 +108,5 @@
   function maiuscula(z){
     v = z.value.toUpperCase();
     z.value = v;
- }
+  }
 </script>

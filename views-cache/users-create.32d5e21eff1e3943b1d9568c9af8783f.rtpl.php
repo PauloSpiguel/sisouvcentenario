@@ -1,96 +1,119 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            Lista de Usuários
-       </h1>
-       <ol class="breadcrumb">
-            <li><a href="/AdminPainel"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="/AdminPainel/users">Usuários</a></li>
-            <li class="active"><a href="/AdminPainel/users/create">Cadastrar</a></li>
-       </ol>
-  </section>
-
-  <!-- Main content -->
-  <section class="content">
-
-   <div class="row">
-      <div class="col-md-12">
-         <div class="box box-success">
-             <div class="box-header with-border">
-                 <h3 class="box-title">Novo Usuário</h3>
+ <!-- Content Header (Page header) -->
+ <section class="content-header">
+  <h1>Lista de Usuários</h1>
+  <ol class="breadcrumb">
+   <li>
+    <a href="/AdminPainel"><i class="fa fa-dashboard"></i>Home</a></li>
+    <li>
+     <a href="/AdminPainel/users">Usuários</a></li><li class="active">
+      <a href="/AdminPainel/users/create">Cadastrar</a>
+    </li>
+  </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Novo Usuário</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" action="/AdminPainel/users/create" method="post">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="desperson">Nome</label>
+              <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome" onkeyup="corrigirValor(this)"></input>
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" action="/AdminPainel/users/create" method="post">
-                 <div class="box-body">
-                     <div class="form-group">
-                         <label for="desperson">Nome</label>
-                         <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome">
-                    </div>
-                    <div class="form-group">
-                         <label for="destypedoc">Tipo Documento</label></br>           
-                         <select name="destypedoc" id="destypedoc">
-                              <option>Selecione...</option>
-                              <option id="rg" value="1">RG</option>
-                              <option value="2">CPF</option>
-                              <option value="3">Passaporte</option>
-                         </select>
-                    </div>
-                    <div class="form-group">
-                       <label for="nrdocument">Número Documento</label>
-                       <input type="number" class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento">
-                  </div>
-                  <div class="form-group" id="hidden_div" style="display: none;">
-                     <label for="desemitter">Orgão Emissor</label>
-                     <input type="text" name="desemitter" id="desemitter" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="deslogin">Login</label>
-                  <input type="text" class="form-control" id="deslogin" name="deslogin" placeholder="Digite o login">
-             </div>
-             <div class="form-group">
-                  <label for="nrphone">Telefone</label>
-                  <input type="tel" class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone">
-             </div>
-             <div class="form-group">
-                  <label for="desemail">E-mail</label>
-                  <input type="email" class="form-control" id="desemail" name="desemail" placeholder="Digite o e-mail">
-             </div>
-             <div class="form-group">
-                  <label for="despassword">Senha</label>
-                  <input type="password" class="form-control" id="despassword" name="despassword" placeholder="Digite a senha">
-             </div>
-             <div class="form-group checkbox">
-                 <label for="inadmin">Perfil</label></br>
-                 <select name="inadmin">
-                      <option style="display: none" value="0">Master</option>
-                      <option selected="selected" value="1">Administrador</option>
-                      <option value="2">Ouvidor</option>
-                      <option value="3">Cidadão</option>
-                      <option value="4">Consulta</option>
-                 </select>          
+            <div class="form-group">
+             <label for="destypedoc">Tipo do Documento</label></br>
+             <select id="destypedoc" name="destypedoc" style="height: 36px; width: 100%">
+               <option>Selecione...</option>
+               <option id="RG" value="RG">RG</option>
+               <option value="CPF">CPF</option>
+               <option value="Passaporte">Passaporte</option>
+             </select>
+           </div> 
+           <div class="form-select">
+            <div class="form-group" style="float: right; width: 100%">
+              <label for="nrdocument">Número do Documento</label>
+              <input class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento" type="number"></input>
             </div>
-       </div>
+            <div class="form-group divEmitter" id="hidden_div">
+              <label for="desemitter">Orgão Emissor</label>
+              <input type="text" class="form-control" id="desemitter" name="desemitter" placeholder="Digite o Orgão Emissor" onkeyup="maiuscula(this)"></input>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="deslogin">Login</label>
+            <input class="form-control" id="deslogin" name="deslogin" placeholder="Digite o login" type="text" onkeyup="maiuscula(this)"></input>
+          </div>
+          <div class="form-group">
+            <label for="nrphone">Celular</label>
+            <input class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone" type="tel"></input>
+          </div>
+          <div class="form-group">
+            <label for="desemail">E-mail</label>
+            <input class="form-control" style="text-transform: lowercase;" id="desemail" name="desemail" placeholder="Digite o e-mail" type="email"></input>
+          </div>
+          <div class="form-group">
+            <label for="despassword">Senha</label>
+            <input class="form-control" id="despassword" name="despassword" placeholder="Digite a senha" type="password"></input>
+          </div>
+          <div class="form-group">
+            <label for="inadmin">Perfil</label></br>
+            <select name="inadmin" id="inadmin" style="height: 36px">
+             <option style="display: none" value="0">Master</option>
+             <option value="1">Administrador</option>
+             <option value="2">Ouvidor</option>
+             <option value="3">Cidadão</option>
+             <option selected="selected" value="4">Consulta</option>
+           </select>
+         </div>
+       </div>  
        <!-- /.box-body -->
        <div class="box-footer">
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-       </div>
-  </form>
+        <button class="btn btn-success" type="submit">Cadastrar</button>
+      </div>  
+    </form>                 
+  </div>
 </div>
 </div>
-</div>
-
 </section>
 <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
-<script>
-     window.onload=function(){
-          document.getElementById('destypedoc').addEventListener('change', function () {
-              var style = this.value == 'rg' ? 'block' : 'none';
-              document.getElementById('hidden_div').style.display = style;
-         });
-     }
+<!-- /.content-wrapper-->
+<script type="text/javascript" DEFER="DEFER">
+  // INICIO FUNÇÃO DE MOSTRA ORGÃO EMISSOR
+  window.onload=function(){
+    var campoRG = document.getElementById('destypedoc').value;
+    var display = campoRG == 'RG' ? 'block' : 'none';
+    document.getElementById('hidden_div').style.display = display;
+
+
+    document.getElementById('destypedoc').addEventListener('change', function () {
+      var style = this.value == 'RG' ? 'block' : 'none';
+      document.getElementById('hidden_div').style.display = style;
+    });
+  }
+  // INICIO FUNÇÃO DE MASCARA MAIUSCULA
+  var ignorar = ["das", "dos", "e", "é", "do", "da", "de"];
+
+  function caixaAlta(string) {
+    return String(string).toLowerCase().replace(/([^A-zÀ-ú]?)([A-zÀ-ú]+)/g, function(match, separator, word) {
+      if (ignorar.indexOf(word) != -1) return separator + word;
+      return separator + word.charAt(0).toUpperCase() + word.slice(1);
+    });
+  }
+  function corrigirValor(el) {
+    el.value = caixaAlta(el.value);
+  }
+  // INICIO FUNÇÃO DE MASCARA MAIUSCULA
+  function maiuscula(z){
+    v = z.value.toUpperCase();
+    z.value = v;
+ }
 </script>
