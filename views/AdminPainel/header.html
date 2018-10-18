@@ -263,6 +263,7 @@ desired effect
               </span>
             </a>
             <ul class="treeview-menu">
+              <li><a href="/AdminPainel/persons"><i class="fa fa-user"></i>Pessoas</a></li>
               <li><a href="/AdminPainel/users"><i class="fa fa-users"></i>Usuários</a></li>
               <li><a href="/AdminPainel/responsables"><i class="fa fa-link"></i>Responsáveis</a></li>        
             </ul>

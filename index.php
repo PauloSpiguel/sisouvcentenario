@@ -5,7 +5,8 @@ require_once "vendor/hcodebr/php-classes/src/DB/SecretAdmin.php";
 //Traz as dependências do sistema
 
 use \SisOuvWeb\Model\User; //namespaces Site
-use \SisOuvWeb\Model\Responsable; //namespaces Site
+use \SisOuvWeb\Model\Responsable;
+use \SisOuvWeb\Model\Person;
 use \SisOuvWeb\Page; //namespaces
 use \SisOuvWeb\PageAdmin;
 use \Slim\Slim;
@@ -65,6 +66,20 @@ $app->get('/AdminPainel/logout', function () {
     exit;
 
 });
+################## ROTA LISTAR PESSOAS ######################
+$app->get('/AdminPainel/persons', function () {
+
+    User::verifyLogin();
+
+    $persons = Person::listAll();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("persons", [
+        "persons" => $persons
+    ]);
+
+});
 ################## ROTA LISTAR USUARIOS ######################
 $app->get('/AdminPainel/users', function () {
 
@@ -78,6 +93,16 @@ $app->get('/AdminPainel/users', function () {
         "users" => $users,
 
     ));
+
+});
+################## ROTA CREATE PESSOAS ######################
+$app->get('/AdminPainel/persons/create', function () {
+
+    User::verifyLogin();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("persons-create");
 
 });
 ################## ROTA CREATE USUARIOS ######################

@@ -2,13 +2,13 @@
 <div class="content-wrapper">
  <!-- Content Header (Page header) -->
  <section class="content-header">
-  <h1>Lista de Responsáveis</h1>
+  <h1>Lista de Pessoas</h1>
   <ol class="breadcrumb">
    <li>
     <a href="/AdminPainel"><i class="fa fa-dashboard"></i>Home</a></li>
     <li>
-     <a href="/AdminPainel/responsables">Responsáveis</a></li><li class="active">
-      <a href="/AdminPainel/responsables/create">Cadastrar</a>
+     <a href="/AdminPainel/persons">Pessoas</a></li><li class="active">
+      <a href="/AdminPainel/persons/create">Cadastrar</a>
     </li>
   </ol>
 </section>
@@ -18,11 +18,11 @@
     <div class="col-md-12">
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">Novo Responsável</h3>
+          <h3 class="box-title">Nova Pessoas</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-         <!-- <form role="form" action="/AdminPainel/responsables/create" method="post">
+        <form role="form" action="/AdminPainel/persons/create" method="post">
           <div class="box-body">
             <div class="form-group">
               <label for="desperson">Nome</label>
@@ -54,23 +54,41 @@
           <div class="form-group">
             <label for="desemail">E-mail</label>
             <input class="form-control" style="text-transform: lowercase;" id="desemail" name="desemail" placeholder="Digite o e-mail" type="email"></input>
-          </div>-->
-          <div class="" style="display: flex;">           
-            <div class="" style="margin-right: 10px">
-              <label style="margin-right: 5px" for="desperson">Nome do Responsável</label>
-              <select style="width: 200px" name="desperson" id="desperson">
-                <option value="">Selecione o Responsável</option>
-                <?php $counter1=-1;  if( isset($person) && ( is_array($person) || $person instanceof Traversable ) && sizeof($person) ) foreach( $person as $key1 => $value1 ){ $counter1++; ?>
-                <option value="<?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
-                <?php } ?>
-              </select>   
-            </div>        
-            <div class="" style="display: inline;">
-              <label style="margin-right: 5px" for="desfunction">Função</label>
-              <input style="width: 400px" type="text" name="desfunction" id="desfunction">
+          </div>
+          <fieldset class="GRUPO">
+            <legend class="GroupTitle">Endereço:</legend>
+          <div class="form-select">
+            <div class="form-group" style="float: right; width: 100%">
+              <label for="despublicplace">Logradouro</label>
+              <input style="width: 99%" class="form-control" id="despublicplace" name="despublicplace" placeholder="Digite seu Endereço" type="text"></input>
             </div>
-          </div>  
+            <div class="form-group">
+              <label for="rnnumber">Número</label>
+              <input  type="number" class="form-control" id="rnnumber" name="rnnumber" placeholder="Num"></input>
+            </div>
+          </div>
+          <div class="form-select">
+            <div class="form-group" style="float: right; width: 40%; margin-right: 10px;">
+              <label for="desregion">Bairro</label>
+              <input style="width: 100%" class="form-control" id="desregion" name="desregion" placeholder="Digite seu Bairro" type="text"></input>
+            </div>
+            <div style="float: left; margin-right: 10px; width: 50%" class="">
+              <label for="descity">Cidade</label>
+              <input type="text" class="form-control" id="descity" name="descity" placeholder="Disite sua Cidade"></input>
+            </div>
+            <div style="float: right; width: 10%; " class="">
+              <label for="desstate">UF</label><br>
+              <select style="height: 35px; width: 100%" name="desstate" id="desstate">
+                <option value="Paraná">PR</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="float: right; width: 100%">
+            <label for="descomplement">Complemento</label>
+            <input style="" class="form-control" id="descomplement" name="descomplement" placeholder="Digite um Complemento" type="text"></input>
+          </div>
         </div>
+        </fieldset>
         <!-- /.box-body -->
         <div class="box-footer">
           <button class="btn btn-success" type="submit">Cadastrar</button>
