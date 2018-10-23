@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
    <!-- Content Header (Page header) -->
    <section class="content-header">
@@ -18,41 +18,41 @@
                </div>
                <!-- /.box-header -->
                <!-- form start -->
-               <form role="form" action="/AdminPainel/persons/{$person.idperson}" method="post">
+               <form role="form" action="/AdminPainel/persons/<?php echo htmlspecialchars( $person["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
                   <div class="box-body">
                      <div class="form-group">
                         <label for="desperson">Nome</label>
                         <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome"
-                           onkeyup="corrigirValor(this)" value="{$person.desperson}">
+                           onkeyup="corrigirValor(this)" value="<?php echo htmlspecialchars( $person["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                      </div>
                      <div class="form-group">
                         <label for="destypedoc">Tipo do Documento</label></br>
                         <select id="destypedoc" name="destypedoc" style="height: 36px; width: 100%">
-                           <option id="RG" value="RG" {if="$person.destypedoc == 'RG'"}selected{/if}>RG</option>
-                           <option value="CPF" {if="$person.destypedoc == 'CPF'"}selected{/if}>CPF</option>
-                           <option value="Passaporte" {if="$person.destypedoc == 'Passaporte'"}selected{/if}>Passaporte</option>
+                           <option id="RG" value="RG" <?php if( $person["destypedoc"] == 'RG' ){ ?>selected<?php } ?>>RG</option>
+                           <option value="CPF" <?php if( $person["destypedoc"] == 'CPF' ){ ?>selected<?php } ?>>CPF</option>
+                           <option value="Passaporte" <?php if( $person["destypedoc"] == 'Passaporte' ){ ?>selected<?php } ?>>Passaporte</option>
                         </select>
                      </div>
                      <div class="form-select">
                         <div class="form-group" style="float: right; width: 100%">
                            <label for="nrdocument">Número do Documento</label>
                            <input class="form-control" id="nrdocument" name="nrdocument" placeholder="Digite o Nº do Doumento"
-                              type="number" value="{$person.nrdocument}">
+                              type="number" value="<?php echo htmlspecialchars( $person["nrdocument"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                         </div>
                         <div class="form-group divEmitter" id="hidden_div">
                            <label for="desemitter">Orgão Emissor</label>
                            <input type="text" class="form-control" id="desemitter" name="desemitter" placeholder="Digite o Orgão Emissor"
-                              onkeyup="maiuscula(this)" value="{$person.desemitter}">
+                              onkeyup="maiuscula(this)" value="<?php echo htmlspecialchars( $person["desemitter"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                         </div>
                      </div>
                      <div class="form-group">
                         <label for="nrphone">Telefone</label>
-                        <input class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone" type="tel" value="{$person.nrphone}">
+                        <input class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone" type="tel" value="<?php echo htmlspecialchars( $person["nrphone"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                      </div>
                      <div class="form-group">
                         <label for="desemail">E-mail</label>
                         <input class="form-control" style="text-transform: lowercase;" id="desemail" name="desemail"
-                           placeholder="Digite o e-mail" type="email" value="{$person.desemail}">
+                           placeholder="Digite o e-mail" type="email" value="<?php echo htmlspecialchars( $person["desemail"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                      </div>
                      <fieldset class="GRUPO">
                         <legend class="GroupTitle">Endereço:</legend>
@@ -60,29 +60,29 @@
                            <div class="form-group" style="float: right; width: 100%">
                               <label for="despublicplace">Logradouro</label>
                               <input style="width: 99%" class="form-control" id="despublicplace" name="despublicplace"
-                                 placeholder="Digite seu Endereço" type="text" onkeyup="corrigirValor(this)" value="{$person.despublicplace}">
+                                 placeholder="Digite seu Endereço" type="text" onkeyup="corrigirValor(this)" value="<?php echo htmlspecialchars( $person["despublicplace"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                            </div>
                            <div class="form-group">
                               <label for="nrnumber">Número</label>
-                              <input type="number" class="form-control" id="nrnumber" name="nrnumber" placeholder="Num" value="{$person.nrnumber}">
+                              <input type="number" class="form-control" id="nrnumber" name="nrnumber" placeholder="Num" value="<?php echo htmlspecialchars( $person["nrnumber"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                            </div>
                         </div>
                         <div class="form-select">
                            <div class="form-group" style="float: right; width: 40%; margin-right: 10px;">
                               <label for="desregion">Bairro</label>
                               <input style="width: 100%" class="form-control" id="desregion" name="desregion"
-                                 placeholder="Digite seu Bairro" type="text" onkeyup="corrigirValor(this)" value="{$person.desregion}">
+                                 placeholder="Digite seu Bairro" type="text" onkeyup="corrigirValor(this)" value="<?php echo htmlspecialchars( $person["desregion"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                            </div>
                            <div style="float: left; margin-right: 10px; width: 50%" class="">
                               <label for="descity">Cidade</label>
                               <input type="text" class="form-control" id="descity" name="descity" placeholder="Disite sua Cidade"
-                                 onkeyup="corrigirValor(this)" value="{$person.descity}">
+                                 onkeyup="corrigirValor(this)" value="<?php echo htmlspecialchars( $person["descity"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                            </div>
                            <div style="float: right; width: 10%; " class="">
                               <label for="desstate">UF</label><br>
                               <select style="height: 35px; width: 100%" name="desstate" id="desstate">
-                                 <option value="Paraná" {if="$person.desstate == 'Paraná'"}selected{/if}>PR</option>
-                                 <option value="Outro" {if="$person.desstate == 'Outro'"}selected{/if}>Outro</option>
+                                 <option value="Paraná" <?php if( $person["desstate"] == 'Paraná' ){ ?>selected<?php } ?>>PR</option>
+                                 <option value="Outro" <?php if( $person["desstate"] == 'Outro' ){ ?>selected<?php } ?>>Outro</option>
                               </select>
                            </div>
                         </div>
@@ -90,12 +90,12 @@
                            <div style="float: left; margin-right: 5px; width: 35%" class="form-group">
                               <label for="country" class="control-label">Pais:</label>
                               <input name="descountry" type="text" class="form-control" id="country" placeholder="Digite o Pais"
-                                 onkeyup="corrigirValor(this)" value="{$person.descity}">
+                                 onkeyup="corrigirValor(this)" value="<?php echo htmlspecialchars( $person["descity"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                            </div>
                            <div style="float: right; width: 65%" class="form-group">
                               <label for="complement" class="control-label">Complemento:</label>
                               <input name="descomplement" type="text" class="form-control" id="complement" placeholder="Digite um Complemento"
-                                 onkeyup="corrigirValor(this)" value="{$person.descomplement}">
+                                 onkeyup="corrigirValor(this)" value="<?php echo htmlspecialchars( $person["descomplement"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                            </div>
                         </div>
                      </fieldset>

@@ -80,6 +80,68 @@ $app->get('/AdminPainel/persons', function () {
     ]);
 
 });
+################## ROTA CREATE PESSOAS ######################
+$app->get('/AdminPainel/persons/create', function () {
+
+    User::verifyLogin();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("persons-create");
+
+});
+################## CRIA O PESSOAS ######################
+$app->post('/AdminPainel/persons/create', function () {
+
+    User::verifyLogin();
+
+    $person = new Person();
+
+    $person->setData($_POST);
+
+    $person->save();
+
+    header("Location: /AdminPainel/persons");
+
+    exit;
+
+});
+################## UPDATE PESSOAS ######################
+$app->get('/AdminPainel/persons/:idperson', function ($idperson) {
+
+    User::verifyLogin();
+
+    $person = new Person();
+
+    $person->get((int) $idperson);
+
+    $page = new PageAdmin();
+
+    $page->setTpl("persons-update", array(
+        "person" => $person->getValues(),
+    ));
+
+});
+################## UPDATE PESSOA ######################
+$app->post("/AdminPainel/persons/:idperson", function ($idperson) {
+
+    User::verifyLogin();
+
+    $person = new Person();
+
+    $person->get((int) $idperson); //Select no db
+
+    $person->setData($_POST); //Cria os Gets e Sets
+
+    //var_dump($person);
+
+    $person->update();
+
+    header('Location: /AdminPainel/persons');
+
+    exit;
+
+});
 ################## ROTA LISTAR USUARIOS ######################
 $app->get('/AdminPainel/users', function () {
 
@@ -93,16 +155,6 @@ $app->get('/AdminPainel/users', function () {
         "users" => $users,
 
     ));
-
-});
-################## ROTA CREATE PESSOAS ######################
-$app->get('/AdminPainel/persons/create', function () {
-
-    User::verifyLogin();
-
-    $page = new PageAdmin();
-
-    $page->setTpl("persons-create");
 
 });
 ################## ROTA CREATE USUARIOS ######################

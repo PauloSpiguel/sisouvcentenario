@@ -6767,7 +6767,7 @@ ADIÇÃO DE CSS PERSONALIZADAS
 
 #hidden_div{
   display: none;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 @media (max-width: 380px) {
