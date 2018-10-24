@@ -90,6 +90,22 @@ $app->get('/AdminPainel/persons/create', function () {
     $page->setTpl("persons-create");
 
 });
+################## DELETA PESSOA ######################
+$app->get("/AdminPainel/persons/:idperson/delete", function ($idperson) {
+
+    User::verifyLogin();
+
+    $person = new Person();
+
+    $person->get((int)$idperson);
+
+    $person->delete();
+
+    header('Location: /AdminPainel/persons');
+
+    exit;
+
+});
 ################## CRIA O PESSOAS ######################
 $app->post('/AdminPainel/persons/create', function () {
 
@@ -138,6 +154,26 @@ $app->post("/AdminPainel/persons/:idperson", function ($idperson) {
     $person->update();
 
     header('Location: /AdminPainel/persons');
+
+    exit;
+
+});
+################## UPDATE PESSOA MODAL######################
+$app->post("/AdminPainel/persons/up", function () {
+
+    User::verifyLogin();
+
+    $person = new Person();
+
+    //$person->get((int) $idperson); //Select no db
+
+    $person->setData($_POST); //Cria os Gets e Sets
+
+    var_dump($person);
+
+    //$person->update();
+
+    //header('Location: /AdminPainel/persons');
 
     exit;
 

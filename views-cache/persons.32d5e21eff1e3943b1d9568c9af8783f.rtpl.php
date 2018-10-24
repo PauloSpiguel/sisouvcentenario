@@ -63,7 +63,7 @@
 											 class="fa fa-edit"></i> Editar</button>
 										<!--<button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#exampleModal"
 										 data-whatever="<?php echo htmlspecialchars( $value1["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-whatevernome="<?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-whateverdetalhes="<?php echo htmlspecialchars( $value1["desemail"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">Editar</button>-->
-										<a href="/AdminPainel/persons/<?php echo htmlspecialchars( $value1["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>
+									<!--<a href="/AdminPainel/persons/<?php echo htmlspecialchars( $value1["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>-->
 										<a href="/AdminPainel/persons/<?php echo htmlspecialchars( $value1["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
 										 class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
 										</a>
@@ -90,7 +90,7 @@
 				<h4 class="modal-title" id="exampleModalLabel">Detalhes</h4>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="/AdminPainel/persons/create" enctype="multipart/form-data">
+				<form method="POST" action="/AdminPainel/persons/up">
 					<div class="form-group">
 						<label for="recipient-person" class="control-label">Nome:</label>
 						<input name="desperson" type="text" class="form-control" id="recipient-person">

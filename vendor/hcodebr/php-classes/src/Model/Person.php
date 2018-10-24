@@ -58,9 +58,8 @@ class Person extends Model
     {
         $sql = new Sql();
 
-		$results = $sql->select("CALL sp_personsupdate_save(:idperson, :desperson, :destypedoc, :nrdocument, :desemitter, :desemail, :nrphone, :despublicplace, :nrnumber, :desregion, :descity, :desstate, :descountry, :descomplement)", array(
-		
-			
+		$results = $sql->select("CALL sp_personsupdate_save(:idperson, :desperson, :destypedoc, :nrdocument, :desemitter, :desemail, :nrphone, :despublicplace, :nrnumber, :desregion, :descity, :desstate, :descountry, :descomplement)", 
+		array(
 			":idperson" => $this->getidperson(),
 			":desperson" => $this->getdesperson(),
 			":destypedoc" => $this->getdestypedoc(),
@@ -75,12 +74,19 @@ class Person extends Model
 			":desstate" => $this->getdesstate(), 
 			":descountry" => $this->getdescountry(), 
 			":descomplement" => $this->getdescomplement()
-			
-
 		));
 
         $this->setData($results[0]);
     }
+    public function delete()
+    {
+        $sql = new Sql();
+
+        $sql->query("DELETE FROM tb_persons WHERE idperson = :idperson", [
+            ":idperson" => $this->getidperson()
+        ]);
+    }
+
 
 
 }

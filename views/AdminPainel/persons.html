@@ -63,7 +63,7 @@
 											 class="fa fa-edit"></i> Editar</button>
 										<!--<button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#exampleModal"
 										 data-whatever="{$value.idperson}" data-whatevernome="{$value.desperson}" data-whateverdetalhes="{$value.desemail}">Editar</button>-->
-										<a href="/AdminPainel/persons/{$value.idperson}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>
+									<!--<a href="/AdminPainel/persons/{$value.idperson}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>-->
 										<a href="/AdminPainel/persons/{$value.idperson}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
 										 class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
 										</a>
@@ -90,7 +90,7 @@
 				<h4 class="modal-title" id="exampleModalLabel">Detalhes</h4>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="/AdminPainel/persons/create" enctype="multipart/form-data">
+				<form method="POST" action="/AdminPainel/persons/up">
 					<div class="form-group">
 						<label for="recipient-person" class="control-label">Nome:</label>
 						<input name="desperson" type="text" class="form-control" id="recipient-person">
