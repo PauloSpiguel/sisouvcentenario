@@ -53,19 +53,19 @@
 										 data-whatevernrphone="{$value.nrphone}" data-whateveremail="{$value.desemail}" data-whateverpublicplace="{$value.despublicplace}"
 										 data-whatevernrnumber="{$value.nrnumber}" data-whateverregion="{$value.desregion}" data-whatevercity="{$value.descity}"
 										 data-whateverstate="{$value.desstate}" data-whatevercountry="{$value.descountry}" data-whatevercomplement="{$value.descomplement}"><i
-											 class="fa fa-info"></i></button>-->
-										<button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#exampleModal"
+										 class="fa fa-info"></i></button>-->
+										 <button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#exampleModal"
 										 data-whatever="{$value.idperson}" data-whateverperson="{$value.desperson}" data-whatevertypedoc="{$value.destypedoc}"
 										 data-whatevernrdocument="{$value.nrdocument}" data-whateveremitter="{$value.desemitter}"
 										 data-whatevernrphone="{$value.nrphone}" data-whateveremail="{$value.desemail}" data-whateverpublicplace="{$value.despublicplace}"
 										 data-whatevernrnumber="{$value.nrnumber}" data-whateverregion="{$value.desregion}" data-whatevercity="{$value.descity}"
 										 data-whateverstate="{$value.desstate}" data-whatevercountry="{$value.descountry}" data-whatevercomplement="{$value.descomplement}"><i
-											 class="fa fa-edit"></i> Editar</button>
+										 class="fa fa-edit"></i> Editar</button>
 										<!--<button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#exampleModal"
-										 data-whatever="{$value.idperson}" data-whatevernome="{$value.desperson}" data-whateverdetalhes="{$value.desemail}">Editar</button>-->
-									<!--<a href="/AdminPainel/persons/{$value.idperson}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>-->
-										<a href="/AdminPainel/persons/{$value.idperson}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
-										 class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+											data-whatever="{$value.idperson}" data-whatevernome="{$value.desperson}" data-whateverdetalhes="{$value.desemail}">Editar</button>-->
+											<!--<a href="/AdminPainel/persons/{$value.idperson}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>-->
+											<a href="/AdminPainel/persons/{$value.idperson}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
+											class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
 										</a>
 									</td>
 								</tr>
@@ -90,10 +90,10 @@
 				<h4 class="modal-title" id="exampleModalLabel">Detalhes</h4>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="/AdminPainel/persons/up">
+				<form id="modalForm" role="form" method="POST" action="">
 					<div class="form-group">
 						<label for="recipient-person" class="control-label">Nome:</label>
-						<input name="desperson" type="text" class="form-control" id="recipient-person">
+						<input name="desperson" type="text" class="form-control" id="recipient-person" onkeyup="corrigirValor(this)">
 					</div>
 					<div class="form-group">
 						<label for="destypedoc">Tipo Documento</label></br>
@@ -110,7 +110,7 @@
 						</div>
 						<div class="form-group divEmitter" id="hidden_div">
 							<label for="emitter" class="control-label">Orgão Emissor:</label>
-							<input name="desemitter" type="text" class="form-control" id="emitter">
+							<input name="desemitter" type="text" class="form-control" id="emitter" onkeyup="corrigirValor(this)">
 						</div>
 					</div>
 					<div class="form-group">
@@ -119,14 +119,14 @@
 					</div>
 					<div class="form-group">
 						<label for="email" class="control-label">Email:</label>
-						<input name="desemail" type="email" class="form-control" id="email">
+						<input name="desemail" type="email" class="form-control" id="email" style="text-transform: lowercase;">
 					</div>
 					<fieldset class="GRUPO">
 						<legend class="GroupTitle">Endereço:</legend>
 						<div class="form-select">
 							<div class="form-group" style="float: right; width: 100%; margin-right: 5px">
 								<label for="publicplace" class="control-label">Logradouro:</label>
-								<input style="width: 100%" name="despublicplace" type="text" class="form-control" id="publicplace">
+								<input style="width: 100%" name="despublicplace" type="text" class="form-control" id="publicplace" onkeyup="corrigirValor(this)">
 							</div>
 							<div class="form-group">
 								<label for="nrnumber" class="control-label">Número:</label>
@@ -136,11 +136,11 @@
 						<div class="form-select">
 							<div class="form-group" style="float: right; width: 40%; margin-right: 5px;">
 								<label for="region" class="control-label">Bairro:</label>
-								<input style="width: 100%" name="desregion" type="text" class="form-control" id="region">
+								<input style="width: 100%" name="desregion" type="text" class="form-control" id="region" onkeyup="corrigirValor(this)">
 							</div>
 							<div style="float: left; margin-right: 5px; width: 40%" class="">
 								<label for="city" class="control-label">Cidade:</label>
-								<input name="descity" type="text" class="form-control" id="city">
+								<input name="descity" type="text" class="form-control" id="city" onkeyup="corrigirValor(this)">
 							</div>
 							<div div style="float: right; width: 20%; " class="">
 								<label for="state" class="control-label">Estado:</label>
@@ -153,19 +153,19 @@
 						<div class="form-select">
 							<div style="float: left; margin-right: 5px; width: 35%" class="form-group">
 								<label for="country" class="control-label">Pais:</label>
-								<input name="descountry" type="text" class="form-control" id="country">
+								<input name="descountry" type="text" class="form-control" id="country" onkeyup="corrigirValor(this)">
 							</div>
 							<div style="float: right; width: 65%" class="form-group">
 								<label for="complement" class="control-label">Complemento:</label>
-								<input name="descomplement" type="text" class="form-control" id="complement">
+								<input name="descomplement" type="text" class="form-control" id="complement" onkeyup="corrigirValor(this)">
 							</div>
 						</div>
 					</fieldset>
 					<input name="id" type="hidden" class="form-control" id="id-curso" value="">
 
 					<button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
-					<button type="submit" class="btn btn-danger">Alterar</button>
-					<button type="button" class="btn btn-primary">Imprimir</button>
+					<button id="updateButton" type="submit" class="btn btn-danger">Alterar</button>
+					<button id="printButton" type="button" class="btn btn-primary">Imprimir</button>
 
 				</form>
 			</div>
@@ -179,17 +179,35 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../../res/admin/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	window.onload = function () {
-		var campoRG = document.getElementById('typedoc').value;
-		var display = campoRG == 'RG' ? 'block' : 'none';
-		document.getElementById('hidden_div').style.display = display;
+	// INICIO FUNÇÃO DE MASCARA MAIUSCULA
+	var ignorar = ["das", "dos", "e", "é", "do", "da", "de"];
 
-		document.getElementById('typedoc').addEventListener('change', function () {
-			var style = this.value == 'RG' ? 'block' : 'none';
-			document.getElementById('hidden_div').style.display = style;
+	function caixaAlta(string) {
+		return String(string).toLowerCase().replace(/([^A-zÀ-ú]?)([A-zÀ-ú]+)/g, function (match, separator, word) {
+			if (ignorar.indexOf(word) != -1) return separator + word;
+			return separator + word.charAt(0).toUpperCase() + word.slice(1);
 		});
 	}
-	$('#exampleModal').on('show.bs.modal', function (event) {
+	function corrigirValor(el) {
+		el.value = caixaAlta(el.value);
+	}
+   // INICIO FUNÇÃO DE MASCARA MAIUSCULA
+   function maiuscula(z) {
+   	v = z.value.toUpperCase();
+   	z.value = v;
+   }
+//FIM DA FUNÇÃO MASCARA MAIUSCULA
+window.onload = function () {
+	var campoRG = document.getElementById('typedoc').value;
+	var display = campoRG == 'RG' ? 'block' : 'none';
+	document.getElementById('hidden_div').style.display = display;
+
+	document.getElementById('typedoc').addEventListener('change', function () {
+		var style = this.value == 'RG' ? 'block' : 'none';
+		document.getElementById('hidden_div').style.display = style;
+	});
+}
+$('#exampleModal').on('show.bs.modal', function (event) {
 		var button = $(event.relatedTarget) // Button that triggered the modal
 		var recipient = button.data('whatever') // Extract info from data-* attributes
 		var recipientperson = button.data('whateverperson')
@@ -224,6 +242,9 @@
 		modal.find('#state').val(recipientstate)
 		modal.find('#country').val(recipientcountry)
 		modal.find('#complement').val(recipientcomplement)
-		/**/
+		/*FUNÇÃO PARA ALTER O ACTION DO FORMULARIO*/
+		$('#updateButton').click(function(){
+			$('#modalForm').attr('action', '/AdminPainel/persons/' + recipient);
+		});
 	})
 </script>

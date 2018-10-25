@@ -159,13 +159,13 @@ $app->post("/AdminPainel/persons/:idperson", function ($idperson) {
 
 });
 ################## UPDATE PESSOA MODAL######################
-$app->post("/AdminPainel/persons/up", function () {
+$app->post("/AdminPainel/persons/:idperson", function ($idperson) {
 
     User::verifyLogin();
 
     $person = new Person();
 
-    //$person->get((int) $idperson); //Select no db
+    $person->get((int) $idperson); //Select no db
 
     $person->setData($_POST); //Cria os Gets e Sets
 
