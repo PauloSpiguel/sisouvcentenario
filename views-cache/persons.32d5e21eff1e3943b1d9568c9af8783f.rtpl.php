@@ -64,8 +64,7 @@
 										<!--<button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#exampleModal"
 											data-whatever="<?php echo htmlspecialchars( $value1["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-whatevernome="<?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-whateverdetalhes="<?php echo htmlspecialchars( $value1["desemail"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">Editar</button>-->
 											<!--<a href="/AdminPainel/persons/<?php echo htmlspecialchars( $value1["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>-->
-											<a href="/AdminPainel/persons/<?php echo htmlspecialchars( $value1["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
-											class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+											<a href="/AdminPainel/persons/<?php echo htmlspecialchars( $value1["idperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
 										</a>
 									</td>
 								</tr>
@@ -179,6 +178,30 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../../res/admin/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+$(document).on("click", ".btn-danger", function(e){
+var link = $(this).attr("href");
+e.preventDefault();
+bootbox.confirm({
+		title: "Destroy planet?",
+		message: "Do you want to activate the Deathstar now? This cannot be undone.",
+		buttons: {
+			cancel: {
+				label: '<i class="fa fa-times"></i> Cancel'
+			},
+			confirm: {
+				label: '<i class="fa fa-check"></i> Confirm'
+			}
+		},
+		callback: function (result) {
+			if(result){
+				document.location.href = link;
+			}
+			//console.log('This was logged in the callback: ' + result);
+		}
+	});
+
+});
+	
 	// INICIO FUNÇÃO DE MASCARA MAIUSCULA
 	var ignorar = ["das", "dos", "e", "é", "do", "da", "de"];
 

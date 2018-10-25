@@ -64,8 +64,7 @@
 										<!--<button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#exampleModal"
 											data-whatever="{$value.idperson}" data-whatevernome="{$value.desperson}" data-whateverdetalhes="{$value.desemail}">Editar</button>-->
 											<!--<a href="/AdminPainel/persons/{$value.idperson}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Editar</a>-->
-											<a href="/AdminPainel/persons/{$value.idperson}/delete" onclick="return confirm('Deseja realmente excluir este registro?')"
-											class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+											<a href="/AdminPainel/persons/{$value.idperson}/delete" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
 										</a>
 									</td>
 								</tr>
@@ -179,6 +178,30 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../../res/admin/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+$(document).on("click", ".btn-danger", function(e){
+var link = $(this).attr("href");
+e.preventDefault();
+bootbox.confirm({
+		title: "Destroy planet?",
+		message: "Do you want to activate the Deathstar now? This cannot be undone.",
+		buttons: {
+			cancel: {
+				label: '<i class="fa fa-times"></i> Cancel'
+			},
+			confirm: {
+				label: '<i class="fa fa-check"></i> Confirm'
+			}
+		},
+		callback: function (result) {
+			if(result){
+				document.location.href = link;
+			}
+			//console.log('This was logged in the callback: ' + result);
+		}
+	});
+
+});
+	
 	// INICIO FUNÇÃO DE MASCARA MAIUSCULA
 	var ignorar = ["das", "dos", "e", "é", "do", "da", "de"];
 
