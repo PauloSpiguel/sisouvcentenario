@@ -178,42 +178,42 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../../res/admin/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+// FUNÇÃO MODAL BOOTBOX CONFIRMAÇÃO DE EXCLUSÃO
 $(document).on("click", ".btn-danger", function(e){
-var link = $(this).attr("href");
-e.preventDefault();
-bootbox.confirm({
-		title: "Destroy planet?",
-		message: "Do you want to activate the Deathstar now? This cannot be undone.",
-		buttons: {
-			cancel: {
-				label: '<i class="fa fa-times"></i> Cancel'
-			},
-			confirm: {
-				label: '<i class="fa fa-check"></i> Confirm'
-			}
-		},
-		callback: function (result) {
-			if(result){
-				document.location.href = link;
-			}
-			//console.log('This was logged in the callback: ' + result);
-		}
-	});
+	var link = $(this).attr("href");
+	e.preventDefault();
+	bootbox.confirm({
+		title: "Exclusão de Registro?",
+		message:'Confirma a exclusão deste registro?',
+		callback: function(confirmacao){
+
+			if (confirmacao)
+				bootbox.alert('Registro excluído com sucesso.');
+				//else
+					//bootbox.alert('Operação cancelada.');
+
+				},
+				buttons: {
+					cancel: {label: '<i class="fa fa-times"></i> Cancelar',className:'btn-default'},
+					confirm: {label: '<i class="fa fa-check"></i> EXCLUIR',className:'btn-danger'}
+
+				}
+			});
 
 });
-	
-	// INICIO FUNÇÃO DE MASCARA MAIUSCULA
-	var ignorar = ["das", "dos", "e", "é", "do", "da", "de"];
 
-	function caixaAlta(string) {
-		return String(string).toLowerCase().replace(/([^A-zÀ-ú]?)([A-zÀ-ú]+)/g, function (match, separator, word) {
-			if (ignorar.indexOf(word) != -1) return separator + word;
-			return separator + word.charAt(0).toUpperCase() + word.slice(1);
-		});
-	}
-	function corrigirValor(el) {
-		el.value = caixaAlta(el.value);
-	}
+// INICIO FUNÇÃO DE MASCARA MAIUSCULA
+var ignorar = ["das", "dos", "e", "é", "do", "da", "de"];
+
+function caixaAlta(string) {
+	return String(string).toLowerCase().replace(/([^A-zÀ-ú]?)([A-zÀ-ú]+)/g, function (match, separator, word) {
+		if (ignorar.indexOf(word) != -1) return separator + word;
+		return separator + word.charAt(0).toUpperCase() + word.slice(1);
+	});
+}
+function corrigirValor(el) {
+	el.value = caixaAlta(el.value);
+}
    // INICIO FUNÇÃO DE MASCARA MAIUSCULA
    function maiuscula(z) {
    	v = z.value.toUpperCase();

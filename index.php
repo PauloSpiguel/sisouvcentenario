@@ -7,6 +7,7 @@ require_once "vendor/hcodebr/php-classes/src/DB/SecretAdmin.php";
 use \SisOuvWeb\Model\User; //namespaces Site
 use \SisOuvWeb\Model\Responsable;
 use \SisOuvWeb\Model\Person;
+use \SisOuvWeb\Model\Sector;
 use \SisOuvWeb\Page; //namespaces
 use \SisOuvWeb\PageAdmin;
 use \Slim\Slim;
@@ -188,8 +189,7 @@ $app->get('/AdminPainel/users', function () {
     $page = new PageAdmin();
 
     $page->setTpl("users", array(
-        "users" => $users,
-
+        "users" => $users
     ));
 
 });
@@ -277,80 +277,6 @@ $app->post("/AdminPainel/users/:iduser", function ($iduser) {
     exit;
 
 });
-################## CARREGA TELA DE RECUPERAÇÃO DE SENHA ######################
-$app->get("/AdminPainel/forgot", function(){
-
-    $page = new PageAdmin([
-        "header"=>false,
-        "footer"=>false
-    ]);
-
-    $page->setTpl("forgot");
-
-});
-################## ROTA RECUPERAÇÃO DE SENHA ######################
-$app->post("/AdminPainel/forgot", function(){
-
-  $user = User::getForgot($_POST["email"]);
-
-  header("Location: /AdminPainel/forgot/sent");
-
-  exit;
-
-});
-################## UPDATE USUARIOS ######################
-$app->get("/AdminPainel/forgot/sent", function(){
-
-    $page = new PageAdmin([
-        "header" => false,
-        "footer" =>false
-    ]);
-
-    $page->setTpl("forgot-sent");
-
-});
-################## ROTA PARA DEFINIÇÃO DE SENHA USUARIOS ######################
-$app->get("/AdminPainel/forgot/reset", function(){
-#Digitando este endereço no navegador será redirecionado para a página abaixo
-
-    $user = User::validForgotDecrypt($_GET["code"]);
-
-    $page = new PageAdmin([
-        "header"=>false,
-        "footer"=>false
-    ]);
-
-    $page->setTpl("forgot-reset", array(
-        "name"=>$user["desperson"],
-        "code"=>$_GET["code"]
-    ));//Esta aqui
-
-});
-################## MONTANDO A TELA PRA DEFINIÇÃO DE SENHA USUARIOS ######################
-$app->post("/AdminPainel/forgot/reset", function(){
-
-    $forgot = User::validForgotDecrypt($_POST["code"]);
-
-    User::setForgotUsed($forgot["idrecovery"]);
-
-    $user = new User();
-
-    $user->get((int)$forgot["iduser"]);
-
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT,[
-        "cost" => 12
-    ]);//hash a senha
-
-    $user->setPassword($password);
-
-    $page = new PageAdmin([
-        "header"=>false,
-        "footer"=>false
-    ]);
-
-    $page->setTpl("forgot-reset-success");
-
-});
 ################## ROTA LISTAR RESPONSÁVEIS ######################
 $app->get('/AdminPainel/responsables', function () {
 
@@ -405,6 +331,106 @@ $app->post('/AdminPainel/responsables/create', function () {
     header("Location: /AdminPainel/responsables");
 
     exit;
+
+});
+#################### ROTA SECTORS - LISTA SECTORS ##############################
+$app->get("/AdminPainel/sectors", function(){
+
+   User::verifyLogin();
+
+   $sectors = Sector::listAll();
+
+   //var_dump($sectors);
+
+   $page = new PageAdmin();
+
+   $page->setTpl("sectors", [
+    "sectors" => $sectors
+    ]);
+
+});
+################## ROTA CREATE SETORES ######################
+$app->get("/AdminPainel/sectors/create", function(){
+
+    User::verifyLogin();
+
+    $page = new PageAdmin();
+
+    $page->setTpl("sectors-create");
+
+});
+################## CARREGA TELA DE RECUPERAÇÃO DE SENHA ######################
+$app->get("/AdminPainel/forgot", function(){
+
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot");
+
+});
+################## ROTA RECUPERAÇÃO DE SENHA ######################
+$app->post("/AdminPainel/forgot", function(){
+
+  $user = User::getForgot($_POST["email"]);
+
+  header("Location: /AdminPainel/forgot/sent");
+
+  exit;
+
+});
+################## ROTA PARA DEFINIÇÃO DE SENHA USUARIOS ######################
+$app->get("/AdminPainel/forgot/reset", function(){
+#Digitando este endereço no navegador será redirecionado para a página abaixo
+
+    $user = User::validForgotDecrypt($_GET["code"]);
+
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot-reset", array(
+        "name"=>$user["desperson"],
+        "code"=>$_GET["code"]
+    ));//Esta aqui
+
+});
+################## MONTANDO A TELA PRA DEFINIÇÃO DE SENHA USUARIOS ######################
+$app->post("/AdminPainel/forgot/reset", function(){
+
+    $forgot = User::validForgotDecrypt($_POST["code"]);
+
+    User::setForgotUsed($forgot["idrecovery"]);
+
+    $user = new User();
+
+    $user->get((int)$forgot["iduser"]);
+
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT,[
+        "cost" => 12
+    ]);//hash a senha
+
+    $user->setPassword($password);
+
+    $page = new PageAdmin([
+        "header"=>false,
+        "footer"=>false
+    ]);
+
+    $page->setTpl("forgot-reset-success");
+
+});
+################## CARREGA FORGOT ######################
+$app->get("/AdminPainel/forgot/sent", function(){
+
+    $page = new PageAdmin([
+        "header" => false,
+        "footer" =>false
+    ]);
+
+    $page->setTpl("forgot-sent");
 
 });
 $app->run();

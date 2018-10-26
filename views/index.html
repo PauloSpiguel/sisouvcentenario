@@ -4,7 +4,7 @@
             <div class="divVoce">
                 <div class="row">
                     <div class="btnAcesso">
-                        <<div>
+                        <div>
                             <h3 id="h3Titulo">REGISTRE SUA MANIFESTAÇÃO</h3>
                             <h5 style="margin-top:-50px; margin-bottom: 50px"><b>SISTEMA DE OUVIDORIA DIGITAL</b></h5>
                         </div>                     

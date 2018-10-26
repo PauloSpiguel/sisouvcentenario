@@ -14,6 +14,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/res/admin/bootstrap/css/bootstrap.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Font Awesome 5.4 -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
@@ -257,15 +259,16 @@ desired effect
           <li class="header">HEADER</li>
           <!-- Optionally, you can add icons to the links -->
           <li class="treeview">
-            <a href="#"><i class="fa fa-link"></i> <span>Cadastros</span>
+            <a href="#"><i class="fas fa-th-list"></i> <span>Cadastros</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="/AdminPainel/persons"><i class="fa fa-user"></i>Pessoas</a></li>
-              <li><a href="/AdminPainel/users"><i class="fa fa-users"></i>Usuários</a></li>
-              <li><a href="/AdminPainel/responsables"><i class="fa fa-link"></i>Responsáveis</a></li>        
+              <li><a href="/AdminPainel/persons"><i class="fa fa-user"></i>Pessoas</a></li>          
+              <li><a href="/AdminPainel/responsables"><i class="fas fa-user-tie"></i> Responsáveis</a></li>
+              <li><a href="/AdminPainel/sectors"><i class="fas fa-synagogue"></i> Setores</a></li>      
+              <li><a href="/AdminPainel/users"><i class="fa fa-users"></i>Usuários</a></li>  
             </ul>
           </li>
           <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
